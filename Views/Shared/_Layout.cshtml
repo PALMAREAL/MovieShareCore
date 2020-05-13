@@ -9,9 +9,10 @@
 </head>
 <body>
     <header>
+        <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShareCore</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShare</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,6 +30,172 @@
                 </div>
             </div>
         </nav>
+        <!-- #Left Sidebar ==================== -->
+        <div class="sidebar">
+            <div class="sidebar-inner">
+                <!-- ### $Sidebar Header ### -->
+                <div class="sidebar-logo">
+                    <div class="peers ai-c fxw-nw">
+                        <div class="peer peer-greed">
+                            <a class="sidebar-link td-n" href="index.html">
+                                <div class="peers ai-c fxw-nw">
+                                    <div class="peer">
+                                        <div class="logo">
+                                            <img src="~/Content/img/logos/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                    @*<div class="peer peer-greed">
+                                        <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
+                                    </div>*@
+                                </div>
+                            </a>
+                        </div>
+                        <div class="peer">
+                            <div class="mobile-toggle sidebar-toggle">
+                                <a href="" class="td-n">
+                                    <i class="fas fa-arrow-circle-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ### $Sidebar Menu ### -->
+                <ul class="sidebar-menu scrollable pos-r">
+                    <li class="nav-item mT-30 actived">
+                        <a class="sidebar-link" href="index.html">
+                            <span class="icon-holder">
+                                <i class="c-blue fa fa-home"></i>
+                            </span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='sidebar-link' href="@Url.Action("Index", "Movie")">
+
+                            <span class="icon-holder">
+                                <i class="fas fa-film"></i>
+                            </span>
+                            <span class="title">Movies</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='sidebar-link' href="@Url.Action("Index", "User")">
+                            <span class="icon-holder">
+                                <i class="fas fa-users"></i>
+                            </span>
+                            <span class="title">Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='sidebar-link' href="charts.html">
+                            <span class="icon-holder">
+                                <i class="c-orange fa fa-chart-bar"></i>
+                            </span>
+                            <span class="title">Charts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-green fa fa-table"></i>
+                            </span>
+                            <span class="title">Tables</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class='sidebar-link' href="basic-table.html">
+                                    <span class="icon-holder">
+                                        <i class="c-green fa fa-table-tennis"></i>
+                                    </span>
+                                    <span class="title">Basic Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class='sidebar-link' href="basic-table.html">
+                                    <span class="icon-holder">
+                                        <i class="c-green fa fa-tablet"></i>
+                                    </span>
+                                    <span class="title">Data Table</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-purple fa fa-map"></i>
+                            </span>
+                            <span class="title">Maps</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="google-maps.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="vector-maps.html">Vector Map</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-teal fa fa-list-alt"></i>
+                            </span>
+                            <span class="title">Multiple Levels</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item dropdown">
+                                <a href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="c-teal fa fa-chess-bishop"></i>
+                                    </span>
+                                    <span>Menu Item</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="c-teal fa fa-chess-knight"></i>
+                                    </span>
+                                    <span>Menu Item</span>
+                                    <span class="arrow">
+                                        <i class=" fa fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="icon-holder">
+                                                <i class="c-teal fa fa-chess-queen"></i>
+                                            </span>
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="icon-holder">
+                                                <i class="c-teal fa fa-chess-pawn"></i>
+                                            </span>
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -38,7 +205,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - MovieShareCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - MovieShare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
