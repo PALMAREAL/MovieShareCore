@@ -5,9 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MovieShareCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.custom.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/css/sidebar.min.css" />
+    @*<link rel="stylesheet" href="~/lib/flag-icon-css/css/flag-icon.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
+
+
+    <style>
+        #loader {
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000;
+        }
+
+            #loader.fadeOut {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #0080FF;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+            animation: sk-scaleout 1.0s infinite ease-in-out;
+        }
+
+        @@-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1.0);
+                opacity: 0;
+            }
+        }
+
+        @@keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+
+            100% {
+                -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div id='loader'>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function load() {
+            const loader = document.getElementById('loader');
+            setTimeout(function () {
+                loader.classList.add('fadeOut');
+            }, 300);
+        });
+    </script>
+
     <header>
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -45,8 +118,8 @@
                                         </div>
                                     </div>
                                     @*<div class="peer peer-greed">
-                                        <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
-                                    </div>*@
+                                            <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
+                                        </div>*@
                                 </div>
                             </a>
                         </div>
@@ -74,7 +147,7 @@
                         <a class='sidebar-link' href="@Url.Action("Index", "Movie")">
 
                             <span class="icon-holder">
-                                <i class="fas fa-film"></i>
+                                <i class="c-green fa fa-film"></i>
                             </span>
                             <span class="title">Movies</span>
                         </a>
@@ -82,7 +155,7 @@
                     <li class="nav-item">
                         <a class='sidebar-link' href="@Url.Action("Index", "User")">
                             <span class="icon-holder">
-                                <i class="fas fa-users"></i>
+                                <i class="c-blue fa fa-users"></i>
                             </span>
                             <span class="title">Users</span>
                         </a>
@@ -210,7 +283,16 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+
+    @*"~/Content/lib/jquery/jquery.min.js",
+        "~/Content/lib/bootstrap/js/bootstrap.min.js",
+        "~/Content/js/sidebar.js",
+        "~/Content/js/site.js" PENDIENTE REVISAR:
+            site.css y site.js*@
+
 </body>
 </html>

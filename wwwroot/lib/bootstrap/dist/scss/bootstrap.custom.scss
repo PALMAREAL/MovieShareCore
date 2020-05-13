@@ -1,0 +1,14 @@
+﻿body {
+
+    $primary: #b200ff;
+    $secondary: #ffffff;
+
+    /*@import "../lib/bootstrap/scss/bootstrap";*/
+    nav.navbar {
+        background: linear-gradient($primary, $secondary)
+    }
+
+    footer {
+        background: linear-gradient($secondary, $primary)
+    }
+}
