@@ -66,7 +66,7 @@
 </head>
 
 
-<body class="app"> @*Para el hamburguer funcionara*@
+<body class="app"> 
 
     <div id='loader'>
         <div class="spinner"></div>
@@ -82,8 +82,8 @@
     </script>
 
     <header>
-        <!-- ### TODO IMPLEMENTAR HAMBURGUER### -->
-        @*<div class="page-container">
+        <!-- ###HAMBURGUER### -->
+        @*<div class="container">
                 <div class="header navbar">
                     <div class="header-container">
                         <ul class="nav-left">
@@ -96,10 +96,11 @@
                     </div>
                 </div>
         </div>*@
-
+        
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
+                <img src="~/img/logos/Camera.png" alt="" class="logo">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShare</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -154,21 +155,23 @@
         <div class="sidebar">
             <div class="sidebar-inner">
                 <!-- ### $Sidebar Header ### -->
-                <div class="sidebar-logo">
+                <div class="sidebar-logo" style="padding:30px; padding-left:25px;">
                     <div class="peers ai-c fxw-nw">
                         <div class="peer peer-greed">
-                            <a class="sidebar-link td-n" href="index.html">
+                            @*<a class="sidebar-link td-n" href="index.html">
                                 <div class="peers ai-c fxw-nw">
                                     <div class="peer">
                                         <div class="logo">
                                             <img src="~/img/logos/logo.png" alt="">
                                         </div>
                                     </div>
-                                    @*<div class="peer peer-greed">
-                                       <h5 class="lh-1 mB-0 logo-text">MovieShare</h5>
-                                    </div>*@
                                 </div>
+                            </a>*@
+
+                            <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+                                <i class="fa fa-bars"></i>
                             </a>
+
 
                         </div>
                         <div class="peer">
@@ -183,7 +186,7 @@
 
                 <!-- ### $Sidebar Menu ### -->
                 <ul class="sidebar-menu scrollable pos-r">
-                    <li class="nav-item mT-30 actived">
+                    <li class="nav-item actived">
                         <a class="sidebar-link" href="index.html">
                             <span class="icon-holder">
                                 <i class="c-blue fa fa-home"></i>
