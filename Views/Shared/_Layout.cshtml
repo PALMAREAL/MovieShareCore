@@ -81,73 +81,58 @@
         });
     </script>
 
-    <header>
-        <!-- ###HAMBURGUER### -->
-        @*<div class="container">
-                <div class="header navbar">
-                    <div class="header-container">
-                        <ul class="nav-left">
-                            <li>
-                                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-                                    <i class="fa fa-bars"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </div>*@
-        
+    <header>      
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <img src="~/img/logos/Camera.png" alt="" class="logo">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShare</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav">
-                        <li class="dropdown" style="width: 65px">
-                            <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
-                                <div class="peer mR-10" style="padding: 16px">
-                                    <img src="~/img/flags/spain.png" class="flag-size" />
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu fsz-sm" style="min-width: 40px">
-                                <li>
-                                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
-                                        <img src="~/img/flags/united-kingdom.png" class="flag-size" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
-                                        <img src="~/img/flags/france.png" class="flag-size" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
-                                        <img src="~/img/flags/germany.png" class="flag-size" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
-                                        <img src="~/img/flags/russia.png" class="flag-size" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="container">          
+                    <img src="~/img/logos/Camera.png" alt="" class="logo">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShare</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                        <ul class="navbar-nav">
+                            <li class="dropdown" style="width: 65px">
+                                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
+                                    <div class="peer mR-10" style="padding: 16px">
+                                        <img src="~/img/flags/spain.png" class="flag-size" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu fsz-sm" style="min-width: 40px">
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
+                                            <img src="~/img/flags/united-kingdom.png" class="flag-size" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
+                                            <img src="~/img/flags/france.png" class="flag-size" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
+                                            <img src="~/img/flags/germany.png" class="flag-size" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
+                                            <img src="~/img/flags/russia.png" class="flag-size" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            @*<li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>*@
+                        </ul>
+                    </div>
             </div>
         </nav>
 
@@ -158,21 +143,9 @@
                 <div class="sidebar-logo" style="padding:30px; padding-left:25px;">
                     <div class="peers ai-c fxw-nw">
                         <div class="peer peer-greed">
-                            @*<a class="sidebar-link td-n" href="index.html">
-                                <div class="peers ai-c fxw-nw">
-                                    <div class="peer">
-                                        <div class="logo">
-                                            <img src="~/img/logos/logo.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>*@
-
                             <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-                                <i class="fa fa-bars"></i>
+                                <i class="fa fa-bars"></i>   
                             </a>
-
-
                         </div>
                         <div class="peer">
                             <div class="mobile-toggle sidebar-toggle">
