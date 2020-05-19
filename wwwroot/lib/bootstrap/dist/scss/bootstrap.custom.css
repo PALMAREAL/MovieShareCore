@@ -1,6 +1,13 @@
 ﻿body {
-  /*@import "../lib/bootstrap/scss/bootstrap";*/ }
-  body nav.navbar {
-    background: linear-gradient(#b200ff, #ffffff); }
-  body footer {
-    background: linear-gradient(#ffffff, #b200ff); }
+    /*@import "../lib/bootstrap/scss/bootstrap";*/
+}
+
+    body nav.navbar {
+        background: linear-gradient(#b200ff, #ffffff);
+    }
+
+    body footer {
+        background: linear-gradient(#ffffff, #b200ff);
+    }
+
+

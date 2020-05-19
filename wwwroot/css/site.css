@@ -76,7 +76,6 @@ body {
     border-left-width: 0px;
     border-left-style: solid;
     margin-right: 50px;
-    
 }
 
 .c-blue {
@@ -87,8 +86,8 @@ body {
     color: brown;
 }
 
-.c-green{
-    color: #00c422;
+.c-red{
+    color: red;
 }
 
 .c-orange {
@@ -113,4 +112,9 @@ body {
 
 .flag-padding {
     padding: 10px 8px !important;
+}
+
+
+.icons-crud{
+    margin-right:10px;
 }
