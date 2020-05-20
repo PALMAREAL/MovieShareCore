@@ -43,6 +43,10 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">
+        <i class="c-blue fas fa-edit icons-crud"></i>
+    </a>
+    <a asp-action="Index">
+        <i class="fas fa-undo-alt icons-crud"></i>
+    </a>
 </div>

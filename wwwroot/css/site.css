@@ -117,6 +117,12 @@ body {
 
 .icons-crud{
     margin-right:10px;
+    margin-left: 10px;
+}
+
+.icons-nav {
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 #loging{
