@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - MovieShareCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.custom.css" />
+    <link rel="stylesheet" href="~/css/carousel.css" />
+    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.carousel.css"  />
+    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.theme.default.css"  />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/sidebar.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -88,8 +91,12 @@
                 <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
                     <i class="fa fa-bars" style="margin-right: 150px; margin-left: -5px"></i>
                 </a>
-                <img src="~/img/logos/Camera.png" alt="" class="logo" style="margin-left: 20px;">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieShare</a>
+                @*<img src="~/img/logos/Camera.png" alt="" class="logo">*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="movieshare">
+                        MovieShare
+                    </span>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -147,8 +154,8 @@
                         <div class="peers ai-c fxw-nw">
                             <div class="peer peer-greed">
                                 <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-                                        <i class="fa fa-bars"></i>
-                                    </a>
+                                    <i class="fa fa-bars"></i>
+                                </a>
                             </div>
                             <div class="peer">
                                 <div class="mobile-toggle sidebar-toggle">
@@ -194,7 +201,7 @@
                             <span class="title">Customer</span>
                         </a>
                     </li>
-                    @* <li class="nav-item dropdown">
+                    @*<li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
                                     <i class="c-green fa fa-table"></i>
@@ -296,7 +303,7 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -307,8 +314,12 @@
             &copy; 2020 - MovieShare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/OwlCarousel2/owl.carousel.js"></script>
+    <script src="~/js/carousel.js"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
