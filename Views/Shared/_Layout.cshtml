@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.custom.css" />
     <link rel="stylesheet" href="~/css/carousel.css" />
-    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.carousel.css"  />
-    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.theme.default.css"  />
+    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.carousel.css" />
+    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.theme.default.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/sidebar.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -83,7 +83,6 @@
             }, 300);
         });
     </script>
-
     <header>
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -135,13 +134,13 @@
                         </li>
                     </ul>
                     @*<ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>*@
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+        </ul>*@
                 </div>
             </div>
         </nav>
@@ -172,7 +171,7 @@
                     <li class="nav-item actived">
                         <a class="sidebar-link" href="@Url.Action("Index", "Home")">
                             <span class="icon-holder">
-                                <i class="c-brown fa fa-home"></i>
+                                <i class="c-blue fa fa-home"></i>
                             </span>
                             <span class="title">Home</span>
                         </a>
@@ -188,7 +187,7 @@
                     <li class="nav-item">
                         <a class='sidebar-link' href="charts.html">
                             <span class="icon-holder">
-                                <i class="c-orange fas fa-chair"></i>
+                                <i class="fas fa-bullhorn" style="color:rgb(128, 0, 128)"></i>
                             </span>
                             <span class="title">Directors</span>
                         </a>
@@ -196,7 +195,7 @@
                     <li class="nav-item">
                         <a class='sidebar-link' href="@Url.Action("Index", "Customer")">
                             <span class="icon-holder">
-                                <i class="c-blue fa fa-users"></i>
+                                <i class="c-orange fa fa-users"></i>
                             </span>
                             <span class="title">Customer</span>
                         </a>
@@ -303,7 +302,7 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

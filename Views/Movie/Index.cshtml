@@ -6,9 +6,25 @@
 
 <h1>Movies</h1>
 
+
 <p>
-    <a asp-action="Create" class="c-green far fa-plus-square fa-2x"></a>
+    @*<a asp-action="Create" class=" btn-sm coolicon" tooltip="New Movie" flow="right">
+        <span>
+            <img src="~/img/icons/create_32.png" />
+
+        </span>
+    </a>*@
+
+    <a asp-action="Create">
+        <button class="icon-btn add-btn">
+            <div class="add-icon"></div>
+            <div class="btn-txt">Add Movie</div>
+        </button>
+    </a>
 </p>
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -43,8 +59,8 @@
 
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                    @*@Html.ActionLink(item.Title, "Details", "Movie", new { id = item.Id }, null)*@
+                    @*@Html.DisplayFor(modelItem => item.Title)*@
+                    @Html.ActionLink(item.Title, "Details", "Movie", new { id = item.Id }, null)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Director)
@@ -65,13 +81,13 @@
                     @Html.DisplayFor(modelItem => item.Budget)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">
+                    <a asp-action="Edit" asp-route-id="@item.Id"  tooltip="Edit" flow="left">
                         <i class="c-blue fas fa-edit icons-crud"></i>
                     </a>
-                    <a asp-action="Details" asp-route-id="@item.Id">
-                        <i class="c-blue fas fa-eye icons-crud"></i>
+                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
+                        <i class="c-brown fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Delete" asp-route-id="@item.Id">
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete Movie" flow="right">
                         <i class="c-red fas fa-trash-alt icons-crud"></i>
                     </a>
                 </td>

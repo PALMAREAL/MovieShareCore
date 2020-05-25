@@ -7,7 +7,14 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class="c-green far fa-plus-square fa-2x"></a>
+    @*<a asp-action="Create" class="c-green far fa-plus-square fa-2x"></a>*@
+
+    <a asp-action="Create">
+        <button class="icon-btn add-btn">
+            <div class="add-icon"></div>
+            <div class="btn-txt">Add User</div>
+        </button>
+    </a>
 </p>
 <table class="table">
     <thead>
@@ -34,7 +41,8 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @*@Html.DisplayFor(modelItem => item.Name)*@
+                @Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Birthdate)
@@ -49,13 +57,13 @@
                 @Html.DisplayFor(modelItem => item.Admin)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">
+                <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
                     <i class="c-blue fas fa-edit icons-crud"></i>
                 </a>
-                <a asp-action="Details" asp-route-id="@item.Id">
-                    <i class="c-blue fas fa-eye icons-crud"></i>
+                <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
+                    <i class="c-brown fas fa-eye icons-crud"></i>
                 </a>
-                <a asp-action="Delete" asp-route-id="@item.Id">
+                <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete User" flow="right">
                     <i class="c-red fas fa-trash-alt icons-crud"></i>
                 </a>
             </td>
