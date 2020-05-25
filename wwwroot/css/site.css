@@ -9,7 +9,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -135,12 +135,13 @@ body {
 .coolicon {
     box-shadow: 0px 0px 6px 1px;
     border-radius: 10px;
+
 }
 
     .coolicon:hover {
         border-width: 5px !important;
         border-color: green !important;
-        background-color: green !important;
+        background-color: transparent !important;
     }
 
 

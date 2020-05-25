@@ -26325,7 +26325,8 @@
   position: fixed;
   top: 0;
   transition: all 0.2s ease;
-  width: 280px;
+  /*width: $offscreen-size;*/
+  width: 200px;
   z-index: 1000; }
   .sidebar ul {
     list-style-type: none; }
@@ -26507,7 +26508,8 @@
       .is-collapsed .sidebar .sidebar-inner .sidebar-menu li.dropdown.open ul.dropdown-menu {
         display: none !important; }
     .is-collapsed .sidebar:hover {
-      width: 280px; }
+      /*width: $offscreen-size;*/
+      width: 200px; }
       .is-collapsed .sidebar:hover .sidebar-inner .sidebar-logo {
         border-bottom: 1px solid #e6ecf5;
         padding: 0 20px; }

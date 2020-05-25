@@ -4,10 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Users</h1>
 
-<p>
-    @*<a asp-action="Create" class="c-green far fa-plus-square fa-2x"></a>*@
+<p style="margin-top: 20px; margin-bottom: 20px;">
+
+    @*<a asp-action="Create" class="btn-sm coolicon" tooltip="New Movie" flow="right">
+            <span>
+                <img src="~/img/icons/create_32.png" />
+            </span>
+        </a>*@
 
     <a asp-action="Create">
         <button class="icon-btn add-btn">
@@ -38,36 +43,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.Name)*@
-                @Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Birthdate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Admin)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
-                    <i class="c-blue fas fa-edit icons-crud"></i>
-                </a>
-                <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
-                    <i class="c-brown fas fa-eye icons-crud"></i>
-                </a>
-                <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete User" flow="right">
-                    <i class="c-red fas fa-trash-alt icons-crud"></i>
-                </a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Name)*@
+                    @Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Admin)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
+                        <i class="c-blue fas fa-edit icons-crud"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
+                        <i class="c-brown fas fa-eye icons-crud"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete User" flow="right">
+                        <i class="c-red fas fa-trash-alt icons-crud"></i>
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
