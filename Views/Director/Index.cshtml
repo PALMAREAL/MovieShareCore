@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MovieShareCore.Models.Director>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Directors</h1>
+
+<p style="margin-top: 20px; margin-bottom: 20px;">
+
+    @*<a asp-action="Create" class=" btn-sm coolicon" tooltip="New Movie" flow="right">
+            <span>
+                <img src="~/img/icons/create_32.png" />
+
+            </span>
+        </a>*@
+
+    <a asp-action="Create">
+        <button class="icon-btn add-btn">
+            <div class="add-icon"></div>
+            <div class="btn-txt">Add Director</div>
+        </button>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Knowfor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Name)*@
+                @Html.ActionLink(item.Name, "Details", "Director", new { id = item.Id }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Knowfor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
+                    <i class="c-blue fas fa-edit icons-crud"></i>
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
+                    <i class="c-brown fas fa-eye icons-crud"></i>
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete Director" flow="right">
+                    <i class="c-red fas fa-trash-alt icons-crud"></i>
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

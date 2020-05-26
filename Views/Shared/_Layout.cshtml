@@ -6,9 +6,6 @@
     <title>@ViewData["Title"] - MovieShareCore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.custom.css" />
-    <link rel="stylesheet" href="~/css/carousel.css" />
-    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.carousel.css" />
-    <link rel="stylesheet" href="~/lib/OwlCarousel2/assets/owl.theme.default.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/sidebar.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -185,7 +182,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class='sidebar-link' href="charts.html">
+                        <a class='sidebar-link' href="@Url.Action("Index", "Director")">
                             <span class="icon-holder">
                                 <i class="fas fa-bullhorn" style="color:rgb(128, 0, 128)"></i>
                             </span>
@@ -317,8 +314,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/OwlCarousel2/owl.carousel.js"></script>
-    <script src="~/js/carousel.js"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)

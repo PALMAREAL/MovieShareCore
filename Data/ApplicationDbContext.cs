@@ -16,5 +16,6 @@ namespace MovieShareCore.Data
         public DbSet<MovieShareCore.Models.Customer> Customers { get; set; }
         public DbSet<MovieShareCore.Models.Movie> Movies { get; set; }
         public DbSet<MovieShareCore.Models.Genre> Genres { get; set; }
+        public DbSet<MovieShareCore.Models.Director> Directors { get; set; }
     }
 }
