@@ -4,16 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Users</h1>
+<h2>Users (Index)</h2>
 
 <p style="margin-top: 20px; margin-bottom: 20px;">
-
-    @*<a asp-action="Create" class="btn-sm coolicon" tooltip="New Movie" flow="right">
-            <span>
-                <img src="~/img/icons/create_32.png" />
-            </span>
-        </a>*@
-
     <a asp-action="Create">
         <button class="icon-btn add-btn">
             <div class="add-icon"></div>
@@ -64,12 +57,12 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
-                        <i class="c-blue fas fa-edit icons-crud"></i>
+                        <i class="c-gray fas fa-pen icons-crud"></i>
                     </a>
                     <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
-                        <i class="c-brown fas fa-eye icons-crud"></i>
+                        <i class="c-teal fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete User" flow="right">
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete Movie" flow="right">
                         <i class="c-red fas fa-trash-alt icons-crud"></i>
                     </a>
                 </td>

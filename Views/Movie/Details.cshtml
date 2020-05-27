@@ -4,10 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h2>Movies (Details)</h2>
 
 <div>
-    <h4>Movie</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -56,9 +55,9 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">
-        <i class="c-blue fas fa-edit icons-crud"></i>
-    </a> 
+        <i class="c-gray  fas fa-pen icons-nav"></i>
+    </a>
     <a asp-action="Index">
-        <i class="fas fa-undo-alt icons-crud"></i>
+        <i class="c-red fas fa-times icons-nav"></i>
     </a>
 </div>

@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h2>Users (Edit)</h2>
 
-<h4>Customer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -39,9 +38,12 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                @*<input type="submit" value="Save" class="btn btn-primary" />*@
+                <a asp-action="Create">
+                    <i class="c-green fas fa-check icons-nav"></i>
+                </a>
                 <a asp-action="Index">
-                    <i class="fas fa-undo-alt icons-nav"></i>
+                    <i class="c-red fas fa-times icons-nav"></i>
                 </a>
             </div>
         </form>

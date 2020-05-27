@@ -4,43 +4,44 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h2>Directors (Details)</h2>
+
+<hr />
 
 <div>
-    <h4>Director</h4>
-    <hr />
+
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Birthdate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Birthdate)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Country)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Country)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Knowfor)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Knowfor)
         </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">
-        <i class="c-blue fas fa-edit icons-crud"></i>
-    </a> 
+        <i class="c-gray  fas fa-pen icons-nav"></i>
+    </a>
     <a asp-action="Index">
-        <i class="fas fa-undo-alt icons-nav"></i>
+        <i class="c-red fas fa-times icons-nav"></i>
     </a>
 </div>

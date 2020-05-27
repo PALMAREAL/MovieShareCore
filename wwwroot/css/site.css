@@ -105,9 +105,12 @@ body {
 }
 
 .c-teal {
-    color: #ff00ac;
+    color: teal;
 }
 
+.c-gray {
+    color:gray;
+}
 
 /* Flags properties
 -------------------------------------------------- */
@@ -128,8 +131,9 @@ body {
 }
 
 .icons-nav {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 25px;
 }
 
 .coolicon {
@@ -180,7 +184,7 @@ body {
     height: 4px;
     width: 10px;
     top: calc(50% - 2px);
-    background: rgb(205, 70, 70);
+    background: rgb(87, 181, 0);
 }
 
 .add-btn::after {
@@ -223,7 +227,7 @@ body {
     height: 20px;
     width: 2px;
     top: calc(50% - 10px);
-    background: rgb(205, 70, 70);
+    background: rgb(87, 181, 0);
     overflow: hidden;
 }
 
@@ -252,7 +256,7 @@ body {
 }
 
 
-/* tOOLTIPS
+/* TOOLTIPS
 -------------------------------------------------- */
 
 /* Basic tooltip with fadeinfadeout and sides options (right/left/bottom/down)*/
