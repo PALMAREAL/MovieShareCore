@@ -13,7 +13,9 @@ namespace MovieShareCore.Models
         [Display(Name = "Nombre")]
         public string Name { get; set; }
 
-        [Display(Name = "Fecha de nacimiento")]
+        [Display(Name = "Nacido")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Birthdate { get; set; }
 
         [Display(Name = "País")]

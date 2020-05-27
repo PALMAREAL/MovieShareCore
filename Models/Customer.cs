@@ -13,7 +13,8 @@ namespace MovieShareCore.Models
         [Display(Name = "Nombre")]
         public string Name { get; set; }
 
-        [Display(Name = "Fecha de nacimiento")]
+        [Display(Name = "Nacido")]
+        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Birthdate { get; set; }
 
@@ -23,7 +24,7 @@ namespace MovieShareCore.Models
         [Display(Name = "País")]
         public string Country { get; set; }
 
-        [Display(Name = "Administrador")]
+        [Display(Name = "Admin")]
         public bool Admin { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace MovieShareCore.Models
         public string Director { get; set; }
 
         [Display(Name = "Año")]
+        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
         public DateTime ReleaseDate { get; set; }
 
