@@ -71,11 +71,11 @@
                     @Html.DisplayFor(modelItem => item.Budget)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
-                        <i class="c-gray fas fa-pen icons-crud"></i>
-                    </a>
                     <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
                         <i class="c-teal fas fa-eye icons-crud"></i>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
+                        <i class="c-gray fas fa-pen icons-crud"></i>
                     </a>
                     <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete Movie" flow="right">
                         <i class="c-red fas fa-trash-alt icons-crud"></i>
