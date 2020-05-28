@@ -421,6 +421,11 @@ body {
 }
 
 
+/* Rounded form
+-------------------------------------------------- */
+.form-control{
+    border-radius: 15px;
+}
 
 
 /* ELSE
