@@ -184,7 +184,7 @@ body {
     height: 4px;
     width: 10px;
     top: calc(50% - 2px);
-    background: rgb(87, 181, 0);
+    background-color: green;
 }
 
 .add-btn::after {
@@ -227,7 +227,7 @@ body {
     height: 20px;
     width: 2px;
     top: calc(50% - 10px);
-    background: rgb(87, 181, 0);
+    background-color: green;
     overflow: hidden;
 }
 

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Directors (Index)</h2>
+<h2>Directors</h2>
 
 <p style="margin-top: 20px; margin-bottom: 20px;">
     <a asp-action="Create">
@@ -51,13 +51,13 @@
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
-                        <i class="c-teal fas fa-eye icons-crud"></i>
+                        <i class="text-info fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="left">
-                        <i class="c-gray fas fa-pen icons-crud"></i>
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="up">
+                        <i class="text-secondary fas fa-pen icons-crud"></i>
                     </a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete Movie" flow="right">
-                        <i class="c-red fas fa-trash-alt icons-crud"></i>
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="up">
+                        <i class="text-danger fas fa-trash-alt icons-crud"></i>
                     </a>
                 </td>
             </tr>
