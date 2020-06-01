@@ -15,8 +15,6 @@
     </a>
 </p>
 
-
-
 <table class="table text-center">
     <thead>
         <tr>
@@ -71,13 +69,13 @@
                     @Html.DisplayFor(modelItem => item.Budget)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
+                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="down">
                         <i class="text-info fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="up">
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="down">
                         <i class="text-secondary fas fa-pen icons-crud"></i>
                     </a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="up">
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="down">
                         <i class="text-danger fas fa-trash-alt icons-crud"></i>
                     </a>
                 </td>

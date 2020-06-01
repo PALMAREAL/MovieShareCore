@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Users (Create)</h2>
+<h2>Users / Create</h2>
 
 <hr />
 <div class="row">
@@ -36,15 +36,14 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1" asp-for="Admin" >
                 <label class="custom-control-label" for="customCheck1">@Html.DisplayNameFor(model => model.Admin)</label>
             </div>
-            <hr />
             <div class="form-group">
                 @*<input type="submit" value="Create" class="btn btn-primary" />*@
 
                 <a asp-action="Create" tooltip="Submit" flow="down">
-                    <i class="c-green fas fa-check icons-nav"></i>
+                    <i class="text-success fas fa-check icons-nav"></i>
                 </a>
                 <a asp-action="Index" tooltip="Cancel" flow="down">
-                    <i class="c-red fas fa-times icons-nav"></i>
+                    <i class="text-danger fas fa-times icons-nav"></i>
                 </a>
             </div>
         </form>

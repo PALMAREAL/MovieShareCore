@@ -133,7 +133,7 @@ body {
 .icons-nav {
     margin-right: 10px;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 .coolicon {
@@ -487,3 +487,7 @@ body {
     font-family: "Lobster";
     color: rgb(205, 70, 70);
 }
+
+
+
+
