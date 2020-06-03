@@ -477,6 +477,46 @@ body {
 
 
 
+
+/* TABLES
+-------------------------------------------------- */
+
+#table-custom {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  #table-custom th{
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #table-custom td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #table-custom tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table-custom tr:hover {background-color: #97dcfc79;}
+  
+  #table-custom th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(85, 159, 219);
+    color: white;
+    
+  }
+
+  #table-custom td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+
 /* ELSE
 -------------------------------------------------- */
 

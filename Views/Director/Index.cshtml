@@ -14,10 +14,10 @@
         </button>
     </a>
 </p>
-<table class="table text-center">
+<table id="table-custom">
     <thead>
         <tr>
-            <th class="text-left" style="width: 174px">
+            <th class="text-left" >
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -37,7 +37,6 @@
         {
             <tr>
                 <td class="text-left">
-                    @*@Html.DisplayFor(modelItem => item.Name)*@
                     @Html.ActionLink(item.Name, "Details", "Director", new { id = item.Id }, null)
                 </td>
                 <td>
