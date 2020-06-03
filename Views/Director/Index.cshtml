@@ -50,13 +50,13 @@
                     @Html.DisplayFor(modelItem => item.Knowfor)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="down">
+                    <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
                         <i class="text-info fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="down">
-                        <i class="text-secondary fas fa-pen icons-crud"></i>
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="up">  
+                        <i class="text-secondary fas fa-edit icons-crud"></i>
                     </a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="down">
+                    <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="up">
                         <i class="text-danger fas fa-trash-alt icons-crud"></i>
                     </a>
                 </td>

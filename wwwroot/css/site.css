@@ -133,7 +133,9 @@ body {
 .icons-nav {
     margin-right: 10px;
     margin-left: 10px;
-    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
 }
 
 .coolicon {
@@ -147,7 +149,6 @@ body {
         border-color: green !important;
         background-color: transparent !important;
     }
-
 
 
 /* Buttons

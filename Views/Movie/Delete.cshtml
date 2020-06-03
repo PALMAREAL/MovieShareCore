@@ -59,10 +59,10 @@
     <form asp-action="Delete">
         @*<input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />*@
-        <a asp-action="Delete" tooltip="Accept" flow="down" >
+        <a asp-action="Delete" tooltip="Accept" flow="up" >
             <i class="text-success fas fa-check icons-nav"></i>
         </a>
-        <a asp-action="Index" tooltip="Cancel" flow="down">
+        <a asp-action="Index" tooltip="Cancel" flow="up">
             <i class="text-danger fas fa-times icons-nav"></i>
         </a>
     </form>
