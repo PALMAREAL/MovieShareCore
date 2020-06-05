@@ -4,11 +4,14 @@
     ViewData["Title"] = "Create";
 }
 
-<h4 class="align-self-sm-center"> Users / Create</h4>
-<div class="container-fluid">
+<ul id="navlist">
+<li><a href="#">User</a></li>  
+<li><a href="#">Create</a></li>
+</ul>
+
     <div class="card bg-light">
         <div class="card-body">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-4">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -40,12 +43,11 @@
 
                         <div class="form-group">
                             @*<input type="submit" value="Create" class="btn btn-primary" />*@
-
-                            <a asp-action="Create" tooltip="Submit" flow="up">
-                                <i class="text-success fas fa-check icons-nav"></i>
-                            </a>
                             <a asp-action="Index" tooltip="Cancel" flow="up">
                                 <i class="text-danger fas fa-times icons-nav"></i>
+                            </a>
+                            <a asp-action="Create" tooltip="Submit" flow="up">
+                                <i class="text-success fas fa-check icons-nav"></i>
                             </a>
                         </div>
                     </form>
@@ -53,7 +55,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

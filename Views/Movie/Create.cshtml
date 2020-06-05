@@ -4,61 +4,80 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Movies / Create</h2>
+<ul id="navlist">
+    <li><a href="#">Movie</a></li>
+    <li><a href="#">Create</a></li>
+</ul>
+@*
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Director" class="control-label"></label>
+                    <input asp-for="Director" class="form-control" />
+                    <span asp-validation-for="Director" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseDate" class="control-label"></label>
+                    <input asp-for="ReleaseDate" class="form-control" />
+                    <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label"></label>
+                    <input asp-for="Duration" class="form-control" />
+                    <span asp-validation-for="Duration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GenreId" class="control-label"></label>
+                    <select asp-for="GenreId" class ="form-control" asp-items="ViewBag.GenreId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Budget" class="control-label"></label>
+                    <input asp-for="Budget" class="form-control" />
+                    <span asp-validation-for="Budget" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Create" tooltip="Submit" flow="up">
+                        <i class="text-success fas fa-check icons-nav"></i>
+                    </a>
+                    <a asp-action="Index" tooltip="Cancel" flow="up">
+                        <i class="text-danger fas fa-times icons-nav"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div> *@
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Director" class="control-label"></label>
-                <input asp-for="Director" class="form-control" />
-                <span asp-validation-for="Director" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Duration" class="control-label"></label>
-                <input asp-for="Duration" class="form-control" />
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GenreId" class="control-label"></label>
-                <select asp-for="GenreId" class ="form-control" asp-items="ViewBag.GenreId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Budget" class="control-label"></label>
-                <input asp-for="Budget" class="form-control" />
-                <span asp-validation-for="Budget" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<input type="submit" value="Create" class="btn btn-primary" />*@
-                <a asp-action="Create" tooltip="Submit" flow="up">
-                    <i class="text-success fas fa-check icons-nav"></i>
-                </a>
-                <a asp-action="Index" tooltip="Cancel" flow="up">
-                    <i class="text-danger fas fa-times icons-nav"></i>
-                </a>
-            </div>
-        </form>
-    </div>
+<div class="form-create">
+    <h1>Create new Movie!<span>Share your best films !</span></h1>
+    <form>
+        <div class="inner-wrap">
+            <label>Movie<input type="text" name="field1" /></label>
+            <label>Director <input type="text" name="field2" /></label>
+            <label>Release Date <input type="email" name="field3" /></label>
+            <label>Duration <input type="text" name="field4" /></label>
+            <label>Genre <input type="text" name="field5" /></label>
+            <label>Country <input type="text" name="field6" /></label>
+            <label>Budget <input type="text" name="field7" /></label>
+        </div>
+        <div class="text-center">
+            <input type="submit" value="Accept" class="btn btn-primary" />
+            <input type="submit" value="Cancel" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
