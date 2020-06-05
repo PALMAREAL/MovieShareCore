@@ -257,6 +257,11 @@ body {
     top: calc(50% - 2px);
 }
 
+/*Accept and Cancel Buttons*/
+
+.action-button{
+    text-align: center;
+}
 
 /* TOOLTIPS
 -------------------------------------------------- */
@@ -664,6 +669,7 @@ dd{
     padding-right: 0.9em;
     padding-left: 0px;
     border-right: 1px solid #c0c0c0;
+    text-align: center;
     
 }
  #navlist li.last {
@@ -675,11 +681,13 @@ dd{
     font-size: 0.9em;
     font-weight: normal;
     text-align: left;
+  
 }
 
     #navlist a {
-        color: #999999;
+        color: #2A88AD;
         text-decoration: none;
+        padding-left: 6px;
     }
 
         #navlist a:hover {
@@ -703,6 +711,6 @@ dd{
 .movieshare {
     font-size: 40px;
     font-family: "Lobster";
-    color: rgb(205, 70, 70);
+    color: #cd4646;
 }
 
