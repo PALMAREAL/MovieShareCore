@@ -9,9 +9,8 @@
 <li><a href="#">Create</a></li>
 </ul>
 
-    <div class="card bg-light">
-        <div class="card-body">
-            <div class="row justify-content-center">
+@* 
+            <div class="row">
                 <div class="col-md-4">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -35,14 +34,14 @@
                             <input asp-for="Country" class="form-control" />
                             <span asp-validation-for="Country" class="text-danger"></span>
                         </div>
-                        @*Adapted Custom Checkbox*@
+                        Adapted Custom Checkbox
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheck1" asp-for="Admin">
                             <label class="custom-control-label" for="customCheck1">@Html.DisplayNameFor(model => model.Admin)</label>
                         </div>
 
                         <div class="form-group">
-                            @*<input type="submit" value="Create" class="btn btn-primary" />*@
+                            <input type="submit" value="Create" class="btn btn-primary" />
                             <a asp-action="Index" tooltip="Cancel" flow="up">
                                 <i class="text-danger fas fa-times icons-nav"></i>
                             </a>
@@ -52,11 +51,25 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> *@
+
+
+
+<div class="form-create">
+    <h1>Add User!<span>More Users more films!</span></h1>
+    <form>
+        <div class="inner-wrap">
+            <label>Name<input type="text" name="field1" /></label>
+            <label>Birthdate <input type="text" name="field2" /></label>
+            <label>Mail<input type="email" name="field3" /></label>
+            <label>Country <input type="text" name="field4" /></label>       
         </div>
-    </div>
-
-
+        <div class="text-center">
+            <input type="submit" value="Accept" class="btn btn-primary" />
+            <input type="submit" value="Cancel" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
