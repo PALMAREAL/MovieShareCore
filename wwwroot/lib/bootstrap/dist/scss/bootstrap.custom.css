@@ -1,13 +1,14 @@
-﻿body {
-    /*@import "../lib/bootstrap/scss/bootstrap";*/
+body {
+  /*@import "../lib/bootstrap/scss/bootstrap";*/
 }
 
-    body nav.navbar {
-        background: linear-gradient(#b200ff, #ffffff);
-    }
+body nav.navbar {
+  background: -webkit-gradient(linear, left top, left bottom, from(#b200ff), to(#ffffff));
+  background: linear-gradient(#b200ff, #ffffff);
+}
 
-    body footer {
-        background: linear-gradient(#ffffff, #b200ff);
-    }
-
-
+body footer {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#b200ff));
+  background: linear-gradient(#ffffff, #b200ff);
+}
+/*# sourceMappingURL=bootstrap.custom.css.map */

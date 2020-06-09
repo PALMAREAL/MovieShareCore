@@ -1,0 +1,89 @@
+/* SEARCH
+-------------------------------------------------- */
+.fresh {
+  font-family: "Anton", sans-serif;
+  background: radial-gradient(#42f471, #26753b);
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: absolute;
+
+  .copy {
+    width: calc(100vw - 10px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #424242;
+    font-size: 20px;
+    color: #ffffff;
+    padding-left: 10px;
+
+    .heart {
+      color: #ff3535;
+      display: inline-block;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      -webkit-transition: color 200ms linear;
+      -ms-transition: color 200ms linear;
+      transition: color 200ms linear;
+    }
+
+    a:hover {
+      color: #ff3535;
+      -webkit-transition: color 200ms linear;
+      -ms-transition: color 200ms linear;
+      transition: color 200ms linear;
+    }
+  }
+
+  .box-for-input {
+    width: 400px;
+    height: 200px;
+    background-color: #153131;
+    margin: 0 auto;
+    margin-top: 15%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+
+    h3 {
+      text-align: center;
+      padding-top: 50px;
+      color: #ffffff;
+      display: block;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px 20px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 25px;
+      box-sizing: border-box;
+      font-family: "Anton", sans-serif;
+    }
+  }
+}
+
+.ui-autocomplete {
+  background-color: #ffffff !important;
+  display: block;
+  width: 300px;
+  box-sizing: border-box;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.ui-menu-item-wrapper {
+  padding: 10px;
+  font-family: "Anton", sans-serif;
+}
+
+.ui-menu-item-wrapper:hover {
+  background-color: #adccff;
+}
