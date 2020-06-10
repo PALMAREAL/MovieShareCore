@@ -9,3 +9,50 @@ for (var year = start; year <= currentyear; year++) {
   options += "<option>" + year + "</option>";
 }
 document.getElementById("year").innerHTML = options;
+
+/*
+// Autocomplete Genre
+$(function () {
+  var availableTags = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Biography",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Musical",
+    "Mistery",
+    "Romance",
+    "SciFi",
+    "Sport",
+    "Thriller",
+    "War",
+    "Western",
+  ];
+  $("#tags").autocomplete({
+    source: availableTags,
+  });
+});
+
+// Autocomplete countries.
+var options = {
+  url: "resources/countries.json",
+
+  getValue: "name",
+
+  list: {
+    match: {
+      enabled: true,
+    },
+  },
+
+  theme: "square",
+};
+
+$("#countries").easyAutocomplete(options);
+*/

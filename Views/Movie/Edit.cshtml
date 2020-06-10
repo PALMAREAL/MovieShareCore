@@ -5,61 +5,98 @@
 }
 
 <ul id="navlist">
-<li><a href="#">Movie</a></li>
-<li><a href="#">Edit</a></li>
+    <li><a href="#">Movie</a></li>
+    <li><a href="#">Edit</a></li>
 </ul>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Director" class="control-label"></label>
-                <input asp-for="Director" class="form-control" />
-                <span asp-validation-for="Director" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Duration" class="control-label"></label>
-                <input asp-for="Duration" class="form-control" />
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GenreId" class="control-label"></label>
-                <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
-                <span asp-validation-for="GenreId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Budget" class="control-label"></label>
-                <input asp-for="Budget" class="form-control" />
-                <span asp-validation-for="Budget" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<input type="submit" value="Save" class="btn btn-primary" />*@
-                <a asp-action="Create" tooltip="Submit" flow="up" >
-                    <i class="text-success fas fa-check icons-nav"></i>
-                </a>
-                <a asp-action="Index" tooltip="Cancel" flow="up" >
-                    <i class="text-danger fas fa-times icons-nav"></i>
-                </a>
-            </div>
-        </form>
-    </div>
+@*<div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Director" class="control-label"></label>
+                    <input asp-for="Director" class="form-control" />
+                    <span asp-validation-for="Director" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseDate" class="control-label"></label>
+                    <input asp-for="ReleaseDate" class="form-control" />
+                    <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label"></label>
+                    <input asp-for="Duration" class="form-control" />
+                    <span asp-validation-for="Duration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GenreId" class="control-label"></label>
+                    <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+                    <span asp-validation-for="GenreId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Budget" class="control-label"></label>
+                    <input asp-for="Budget" class="form-control" />
+                    <span asp-validation-for="Budget" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Create" tooltip="Submit" flow="up">
+                        <i class="text-success fas fa-check icons-nav"></i>
+                    </a>
+                    <a asp-action="Index" tooltip="Cancel" flow="up">
+                        <i class="text-danger fas fa-times icons-nav"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+<div class="form-create">
+    <h1>Edit Movie!<span>Something is wrong? Fixed it!</span></h1>
+    <form>
+        <div class="inner-wrap">
+            <label>Title<input type="text" name="field1" /></label>
+            <label>
+                Director
+                <select>
+                    <partial name="_Directors" />
+                </select>
+            </label>
+            <label>
+                Release
+                <select id="year"></select>
+            </label>
+            <label>Duration <input type="text" name="field4" /></label>
+            <label>
+                Genre
+                <select>
+                    <partial name="_Genres" />
+                </select>
+            </label>
+            <label>
+                Country
+                <select>
+                    <partial name="_Countries" />
+                </select>
+            </label>
+            <label>Budget <input type="text" name="field7" /></label>
+        </div>
+        <div class="action-button">
+            <input type="submit" value="Cancel" />
+            <input type="submit" value="OK" />
+        </div>
+    </form>
 </div>
 
 

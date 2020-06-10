@@ -5,61 +5,106 @@
 }
 
 <ul id="navlist">
-<li><a href="#">Movie</a></li>
-<li><a href="#">Details</a></li>
+    <li><a href="#">Movie</a></li>
+    <li><a href="#">Details</a></li>
 </ul>
 
-<div>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Director)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Director)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Duration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Duration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Budget)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Budget)
-        </dd>
-    </dl>
+@*<div>
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Director)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Director)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Duration)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Duration)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Genre.Name)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Country)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Country)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Budget)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Budget)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" tooltip="Edit" flow="up">
+             <i class="text-secondary fas fa-edit icons-nav"></i>
+        </a>
+        <a asp-action="Index" tooltip="Cancel" flow="up">
+            <i class="text-danger fas fa-times icons-nav"></i>
+        </a>
+    </div>*@
+
+
+
+<div class="form-create">
+    <h1>Details Movie!<span>All you need to know!</span></h1>
+    <form>
+        <div class="inner-wrap">
+            <span>@Html.DisplayNameFor(model => model.Title)</span>
+            <label>
+                @Html.DisplayFor(model => model.Title)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Director)</span>
+            <label>
+                @Html.DisplayFor(model => model.Director)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.ReleaseDate)</span>
+            <label>
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Duration)</span>
+            <label>
+                @Html.DisplayFor(model => model.Duration)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Genre)</span>
+            <label>
+                @Html.DisplayFor(model => model.Genre.Name)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Country)</span>
+            <label>
+                @Html.DisplayFor(model => model.Country)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Budget)</span>
+            <label>
+                @Html.DisplayFor(model => model.Budget)
+            </label>
+        </div>
+        <div class="action-button">
+            <input type="submit" value="Edit" />
+            <input type="submit" value="OK" />
+        </div>
+    </form>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" tooltip="Edit" flow="up">
-         <i class="text-secondary fas fa-edit icons-nav"></i>
-    </a>
-    <a asp-action="Index" tooltip="Cancel" flow="up">
-        <i class="text-danger fas fa-times icons-nav"></i>
-    </a>
-</div>
+
+
+

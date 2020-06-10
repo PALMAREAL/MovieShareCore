@@ -310,7 +310,7 @@ body {
 /*Accept and Cancel Buttons*/
 
 .action-button {
-  text-align: right;
+    text-align: right;
 }
 
 /* TOOLTIPS
@@ -572,7 +572,7 @@ body {
 /* dt and dd custom
 -------------------------------------------------- */
 
-dt {
+/*dt {
   font-size: 20px;
   color: #0366d6;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -584,7 +584,7 @@ dd {
   font-size: 15px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-}
+}*/
 
 /* FORM STYLE
 -------------------------------------------------- */
