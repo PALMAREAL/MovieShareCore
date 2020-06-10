@@ -5,11 +5,11 @@
 }
 
 <ul id="navlist">
-<li><a href="#">Director</a></li>
-<li><a href="#">Details</a></li>
+    <li><a href="#">Director</a></li>
+    <li><a href="#">Details</a></li>
 </ul>
 
-<div>
+@*<div>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -38,10 +38,41 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" tooltip="Edit" flow="up" >
-          <i class="text-secondary fas fa-edit icons-nav"></i>
+    <a asp-action="Edit" asp-route-id="@Model.Id" tooltip="Edit" flow="up">
+        <i class="text-secondary fas fa-edit icons-nav"></i>
     </a>
-    <a asp-action="Index" tooltip="Cancel" flow="up" >
+    <a asp-action="Index" tooltip="Cancel" flow="up">
         <i class="text-danger fas fa-times icons-nav"></i>
     </a>
+</div>*@
+
+
+
+<div class="form-create">
+    <h1>Director details!<span>All you need to know!</span></h1>
+    <form>
+        <div class="inner-wrap">
+            <span>@Html.DisplayNameFor(model => model.Name)</span>
+            <label>
+                @Html.DisplayFor(model => model.Name)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Birthdate)</span>
+            <label>
+                @Html.DisplayFor(model => model.Birthdate)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Country)</span>
+            <label>
+                @Html.DisplayFor(model => model.Country)
+            </label>
+            <span> @Html.DisplayNameFor(model => model.Knowfor)</span>
+            <label>
+                @Html.DisplayFor(model => model.Knowfor)
+            </label>
+        </div>
+        <div class="action-button">
+            <input type="submit" value="Edit" />
+            <input type="submit" value="OK" />
+        </div>
+    </form>
 </div>
+
