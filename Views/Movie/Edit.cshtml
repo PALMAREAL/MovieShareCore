@@ -11,10 +11,10 @@
 
 <div class="form-create">
     <h1>Edit Movie!<span>Something is wrong? Fixed it!</span></h1>
-    <div class="inner-wrap">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="inner-wrap">
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -50,21 +50,14 @@
                 <input asp-for="Budget" class="form-control" />
                 <span asp-validation-for="Budget" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                    <a asp-action="Create" tooltip="Submit" flow="up">
-                        <i class="text-success fas fa-check icons-nav"></i>
-                    </a>
-                    <a asp-action="Index" tooltip="Cancel" flow="up">
-                        <i class="text-danger fas fa-times icons-nav"></i>
-                    </a>
-                </div>*@
-        </form>
-    </div>
-    <div class="action-button">
-        <input type="submit" value="Cancel" />
-        <input type="submit" value="OK" />
-    </div>
+        </div>
+        <div class="form-group action-button">
+            <input type="submit" value="Save" />
+            <a asp-action="Index">
+                <input type="button" value="Cancel" />
+            </a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
