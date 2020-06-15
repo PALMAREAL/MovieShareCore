@@ -10,26 +10,35 @@ namespace MovieShareCore.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
+        [StringLength(50, MinimumLength = 1,
+            ErrorMessage = " The Title should be a maximum of 50 characters")]
         [Display(Name = "Título")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
+        [StringLength(50, MinimumLength = 1,
+            ErrorMessage = " The name should be a maximum of 40 characters")]
         [Display(Name = "Director")]
         public string Director { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Año")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
         public DateTime ReleaseDate { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Duración")]
         public int Duration { get; set; }
 
         [Display(Name = "Género")]
         public Genre Genre { get; set; }
-
+   
         [Display(Name = "Género")]
         public int GenreId { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "País")]
         public string Country { get; set; }
 

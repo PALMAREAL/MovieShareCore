@@ -2,5 +2,9 @@
   {
     "outputFile": "wwwroot/css/sidebar.css",
     "inputFile": "wwwroot/css/sidebar.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/moviecard.css",
+    "inputFile": "wwwroot/css/moviecard.scss"
   }
 ]
