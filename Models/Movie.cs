@@ -32,9 +32,10 @@ namespace MovieShareCore.Models
         [Display(Name = "Duración")]
         public int Duration { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Género")]
         public Genre Genre { get; set; }
-   
+
         [Display(Name = "Género")]
         public int GenreId { get; set; }
 

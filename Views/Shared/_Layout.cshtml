@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/sidebar.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/moviecard.css" />
+    @*<link rel="stylesheet" href="~/css/moviecard.css" />*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 </head>
 
 <body class="app">
@@ -24,6 +26,29 @@
             }, 300);
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var director = $("#director-select");
+                var country = $("#country-select");
+                var genre = $("#genre-select");
+
+                if (director.val() === "") {
+                    document.getElementById("director").innerHTML = "<div>Director is required</div>";
+                }
+
+                if (country.val() === "") {
+                    document.getElementById("country").innerHTML = "<div>Country is required</div>";
+                }
+
+                if (genre.val() === "") {
+                    document.getElementById("genre").innerHTML = "<div>Genre is required</div>";
+                }
+            });
+        });
+    </script>
+
     <header>
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -75,13 +100,13 @@
                         </li>
                     </ul>
                     @*<ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </li>
-        </ul>*@
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>*@
                 </div>
             </div>
         </nav>
@@ -120,7 +145,7 @@
                     <li class="nav-item">
                         <a class='sidebar-link' href="@Url.Action("Index", "Movie")">
                             <span class="icon-holder">
-                                <i class="fa fa-film"  style="color: #cd4646"></i>
+                                <i class="fa fa-film" style="color: #cd4646"></i>
                             </span>
                             <span class="title">Movies</span>
                         </a>
@@ -256,8 +281,7 @@
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
