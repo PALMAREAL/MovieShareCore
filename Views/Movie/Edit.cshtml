@@ -42,8 +42,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <partial name="_Countries" />
+                <span id="country" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Budget" class="control-label"></label>
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="form-group action-button">
-            <input type="submit" value="Save" />
+            <input id="submit" type="submit" value="Save" />
             <a asp-action="Index">
                 <input type="button" value="Cancel" />
             </a>
