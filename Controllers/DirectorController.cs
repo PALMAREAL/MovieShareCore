@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieShareCore.Data;
 using MovieShareCore.Models;
+using MovieShareCore.Services;
 
 namespace MovieShareCore.Controllers
 {
     public class DirectorController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IDirectorService DirectorService;
 
-        public DirectorController(ApplicationDbContext context)
+        public DirectorController(ApplicationDbContext context, IDirectorService directorService)
         {
             _context = context;
+            DirectorService = directorService;
         }
 
         // GET: Director

@@ -12,6 +12,7 @@ using MovieShareCore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MovieShareCore.Services;
 
 namespace MovieShareCore
 {
@@ -34,6 +35,9 @@ namespace MovieShareCore
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSingleton<IMovieService, MovieService>();
+            services.AddSingleton<ICustomerService, CustomerService>();
+            services.AddSingleton<IDirectorService, DirectorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

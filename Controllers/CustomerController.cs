@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieShareCore.Data;
 using MovieShareCore.Models;
+using MovieShareCore.Services;
 
 namespace MovieShareCore.Controllers
 {
     public class CustomerController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private ICustomerService CustomerService;
 
-        public CustomerController(ApplicationDbContext context)
+        public CustomerController(ApplicationDbContext context, ICustomerService customerService)
         {
             _context = context;
+            CustomerService = customerService;
         }
 
         // GET: Customer

@@ -7,21 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieShareCore.Data;
 using MovieShareCore.Models;
+using MovieShareCore.Services;
 
 namespace MovieShareCore.Controllers
 {
     public class MovieController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IMovieService MovieService;
 
-        public MovieController(ApplicationDbContext context)
+        public MovieController(ApplicationDbContext context, IMovieService movieService)
         {
             _context = context;
+            MovieService = movieService;
         }
 
         // GET: Movie
         public async Task<IActionResult> Index()
         {
+            //var  MovieService.getAll();
+
             var applicationDbContext = _context.Movies.Include(m => m.Genre);
             return View(await applicationDbContext.ToListAsync());
         }
