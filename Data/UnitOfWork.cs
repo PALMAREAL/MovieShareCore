@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.Data
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : Disposable, IUnitOfWork
     {
         private ApplicationDbContext DbContext;
 
@@ -25,11 +25,6 @@ namespace MovieShareCore.Data
         public IDirectorRepository DirectorRepository { get; set; }
 
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         public void RollBack()
         {
             throw new NotImplementedException();
@@ -37,7 +32,13 @@ namespace MovieShareCore.Data
 
         public void Save()
         {
-            throw new NotImplementedException();
+            DbContext.SaveChanges();
+        }
+
+        protected override void DisposeCore()
+        {
+            if (DbContext != null)
+                DbContext.Dispose();
         }
     }
 }

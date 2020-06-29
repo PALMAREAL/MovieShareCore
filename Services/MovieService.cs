@@ -15,27 +15,27 @@ namespace MovieShareCore.Services
 
         public void Create(Movie movie)
         {
-            throw new NotImplementedException();
+            UoW.MovieRepository.Insert(movie);
         }
 
         public void Update(Movie movie)
         {
-            throw new NotImplementedException();
+            UoW.MovieRepository.Update(movie);
         }
 
         public void Delete(Movie movie)
         {
-            throw new NotImplementedException();
+            UoW.MovieRepository.Delete(movie);
         }
 
         public Movie GetById(int id)
         {
-            throw new NotImplementedException();
+            return UoW.MovieRepository.GetByID(id);
         }
 
         public IEnumerable<Movie> GetAll()
         {
-            throw new NotImplementedException();
+            return UoW.MovieRepository.Get();
         }
     }
 }

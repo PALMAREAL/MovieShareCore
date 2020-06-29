@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MovieShareCore.Services;
+using AutoMapper;
 
 namespace MovieShareCore
 {
@@ -28,6 +29,7 @@ namespace MovieShareCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -35,13 +37,14 @@ namespace MovieShareCore
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddSingleton<IMovieService, MovieService>();
-            services.AddSingleton<ICustomerService, CustomerService>();
-            services.AddSingleton<IDirectorService, DirectorService>();
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<IMovieRepository, MovieRepository>();
-            services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<IDirectorRepository, DirectorRepository>();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IDirectorService, DirectorService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IDirectorRepository, DirectorRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

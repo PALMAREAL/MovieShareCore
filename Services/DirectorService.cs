@@ -15,27 +15,27 @@ namespace MovieShareCore.Services
 
         public void Create(Director director)
         {
-            throw new NotImplementedException();
+            UoW.DirectorRepository.Insert(director);
         }
 
         public void Update(Director director)
         {
-            throw new NotImplementedException();
+            UoW.DirectorRepository.Update(director);
         }
 
         public void Delete(Director director)
         {
-            throw new NotImplementedException();
+            UoW.DirectorRepository.Delete(director);
         }
 
         public Director GetById(int id)
         {
-            throw new NotImplementedException();
+            return UoW.DirectorRepository.GetByID(id);
         }
 
         public IEnumerable<Director> GetAll()
         {
-            throw new NotImplementedException();
+            return UoW.DirectorRepository.Get();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MovieShareCore.Data
 {
-    public interface IDirectorRepository 
+    public interface IDirectorRepository : IRepository<Director>
     {
     }
 }

@@ -15,27 +15,27 @@ namespace MovieShareCore.Services
 
         public void Create(Customer customer)
         {
-            throw new NotImplementedException();
+            UoW.CustomerRepository.Insert(customer);
         }
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            UoW.CustomerRepository.Update(customer);
         }
 
         public void Delete(Customer customer)
         {
-            throw new NotImplementedException();
+            UoW.CustomerRepository.Delete(customer);
         }
 
         public Customer GetById(int id)
         {
-            throw new NotImplementedException();
+            return UoW.CustomerRepository.GetByID(id);
         }
 
         public IEnumerable<Customer> GetAll()
         {
-            throw new NotImplementedException();
+            return UoW.CustomerRepository.Get();
         }
     }
 }

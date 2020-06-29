@@ -2,7 +2,7 @@
 
 namespace MovieShareCore.Data
 {
-    public interface IMovieRepository 
+    public interface IMovieRepository : IRepository<Movie>
     {
     }
 }

@@ -2,30 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieShareCore.Data;
 using MovieShareCore.Models;
 using MovieShareCore.Services;
+using MovieShareCore.ViewModels;
 
 namespace MovieShareCore.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private IMovieService MovieService;
+        private readonly IMapper Mapper;
+        private ApplicationDbContext _context; 
 
-        public MovieController(ApplicationDbContext context, IMovieService movieService)
+        public MovieController(IMovieService movieService, IMapper mapper, ApplicationDbContext context)
         {
-            _context = context;
             MovieService = movieService;
+            Mapper = mapper;
+            _context = context;
         }
 
         // GET: Movie
         public async Task<IActionResult> Index()
         {
-            //var  MovieService.getAll();
+            var movies = MovieService.GetAll();
+            var movieViewModel = Mapper.Map<IEnumerable<MovieViewModel>>(movies);
 
             var applicationDbContext = _context.Movies.Include(m => m.Genre);
             return View(await applicationDbContext.ToListAsync());
