@@ -8,5 +8,8 @@ namespace MovieShareCore.Data
 {
     public class DirectorRepository : Repository<Director>, IDirectorRepository
     {
+        public DirectorRepository(ApplicationDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }
