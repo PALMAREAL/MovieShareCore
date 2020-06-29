@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.Services
 {
-    public class DirectorService : IDirectorService
+    public class DirectorService : ServiceBase, IDirectorService
     {
 
-        private IUnitOfWork UoW;
+        public DirectorService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
-        public DirectorService(IUnitOfWork unitOfWork)
-        {
-            UoW = unitOfWork;
-        }
 
         public void Create(Director director)
         {

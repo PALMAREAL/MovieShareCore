@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.Services
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : ServiceBase, ICustomerService
     {
 
-        private IUnitOfWork UoW;
+        public CustomerService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
-        public CustomerService(IUnitOfWork unitOfWork)
-        {
-            UoW = unitOfWork;
-        }
 
         public void Create(Customer customer)
         {
