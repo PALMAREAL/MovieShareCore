@@ -1,6 +1,8 @@
-﻿namespace MovieShareCore.Data
+﻿using MovieShareCore.Models;
+
+namespace MovieShareCore.Data
 {
-    public interface IDirectorRepository
+    public interface IDirectorRepository 
     {
     }
 }
