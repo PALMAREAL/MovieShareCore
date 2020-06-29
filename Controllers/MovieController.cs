@@ -29,11 +29,14 @@ namespace MovieShareCore.Controllers
         // GET: Movie
         public async Task<IActionResult> Index()
         {
-            var movies = MovieService.GetAll();
+            var movies = await MovieService.GetAll();
+            
             var movieViewModel = Mapper.Map<IEnumerable<MovieViewModel>>(movies);
+           
+            return View(movieViewModel);
 
-            var applicationDbContext = _context.Movies.Include(m => m.Genre);
-            return View(await applicationDbContext.ToListAsync());
+            //var applicationDbContext = _context.Movies.Include(m => m.Genre);
+            //return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Movie/Details/5

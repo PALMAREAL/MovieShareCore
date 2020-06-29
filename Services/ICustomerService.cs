@@ -1,5 +1,6 @@
 ﻿using MovieShareCore.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MovieShareCore.Services
 {
@@ -14,7 +15,7 @@ namespace MovieShareCore.Services
 
         public Customer GetById(int id);
 
-        public IEnumerable<Customer> GetAll();
+        public Task<IEnumerable<Customer>> GetAll();
 
     }
 }

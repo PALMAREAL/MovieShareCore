@@ -33,9 +33,9 @@ namespace MovieShareCore.Services
             return UoW.DirectorRepository.GetByID(id);
         }
 
-        public IEnumerable<Director> GetAll()
+        public async Task<IEnumerable<Director>> GetAll()
         {
-            return UoW.DirectorRepository.Get();
+            return await UoW.DirectorRepository.Get();
         }
     }
 }

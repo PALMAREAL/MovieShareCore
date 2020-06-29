@@ -33,9 +33,9 @@ namespace MovieShareCore.Services
             return UoW.CustomerRepository.GetByID(id);
         }
 
-        public IEnumerable<Customer> GetAll()
+        public async Task<IEnumerable<Customer>> GetAll()
         {
-            return UoW.CustomerRepository.Get();
+            return await UoW.CustomerRepository.Get();
         }
     }
 }

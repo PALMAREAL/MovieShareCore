@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MovieShareCore.Data
 {
@@ -17,7 +18,7 @@ namespace MovieShareCore.Data
             dbSet = dbContext.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> Get(
+        public async virtual Task<IEnumerable<TEntity>> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
@@ -37,11 +38,11 @@ namespace MovieShareCore.Data
 
             if (orderBy != null)
             {
-                return orderBy(query).ToList();
+                return await Task.Run<IEnumerable<TEntity>>(() => orderBy(query).ToList()); 
             }
             else
             {
-                return query.ToList();
+                return await Task.Run<IEnumerable<TEntity>>(() => query.ToList());
             }
         }
 

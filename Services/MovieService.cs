@@ -32,10 +32,10 @@ namespace MovieShareCore.Services
         {
             return UoW.MovieRepository.GetByID(id);
         }
-
-        public IEnumerable<Movie> GetAll()
+        
+        public async Task<IEnumerable<Movie>> GetAll()
         {
-            return UoW.MovieRepository.Get();
+            return await UoW.MovieRepository.Get(null, null, "Genre");
         }
     }
 }
