@@ -1,4 +1,5 @@
-﻿using MovieShareCore.Models;
+﻿using MovieShareCore.Data;
+using MovieShareCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ namespace MovieShareCore.Services
 {
     public class DirectorService : IDirectorService
     {
+
+        private IUnitOfWork UoW;
+
+        public DirectorService(IUnitOfWork unitOfWork)
+        {
+            UoW = unitOfWork;
+        }
+
         public void Create(Director director)
         {
             throw new NotImplementedException();

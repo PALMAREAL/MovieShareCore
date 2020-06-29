@@ -1,4 +1,5 @@
-﻿using MovieShareCore.Models;
+﻿using MovieShareCore.Data;
+using MovieShareCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ namespace MovieShareCore.Services
 {
     public class CustomerService : ICustomerService
     {
+
+        private IUnitOfWork UoW;
+
+        public CustomerService(IUnitOfWork unitOfWork)
+        {
+            UoW = unitOfWork;
+        }
+
         public void Create(Customer customer)
         {
             throw new NotImplementedException();
