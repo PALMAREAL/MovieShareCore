@@ -38,6 +38,10 @@ namespace MovieShareCore
             services.AddSingleton<IMovieService, MovieService>();
             services.AddSingleton<ICustomerService, CustomerService>();
             services.AddSingleton<IDirectorService, DirectorService>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IMovieRepository, MovieRepository>();
+            services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<IDirectorRepository, DirectorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

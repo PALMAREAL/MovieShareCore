@@ -8,10 +8,11 @@ namespace MovieShareCore.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext context;
+        private ApplicationDbContext DbContext;
 
-        public UnitOfWork(IMovieRepository movieRepository, ICustomerRepository customerRepository, IDirectorRepository directorRepository)
+        public UnitOfWork(ApplicationDbContext dbContext, IMovieRepository movieRepository, ICustomerRepository customerRepository, IDirectorRepository directorRepository)
         {
+            DbContext = dbContext;
             MovieRepository = movieRepository;
             CustomerRepository = customerRepository;
             DirectorRepository = directorRepository;
