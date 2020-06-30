@@ -6,11 +6,13 @@ namespace MovieShareCore.Services
 {
     public interface IMovieService
     {
-        public void Create(Movie movie);
+        public Task Create(Movie movie);
 
-        public void Update(Movie movie);
+        public Task Update(Movie movie);
 
-        public void Delete(Movie movie);
+        public Task Delete(int id);
+
+        public Task Delete(Movie movie);
 
         public Task<Movie> GetEntity(int id);
 

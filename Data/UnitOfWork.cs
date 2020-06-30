@@ -30,9 +30,9 @@ namespace MovieShareCore.Data
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            DbContext.SaveChanges();
+            await DbContext.SaveChangesAsync();
         }
 
         protected override void DisposeCore()

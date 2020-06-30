@@ -58,23 +58,23 @@ namespace MovieShareCore.Data
 
         public virtual void Delete(object id)
         {
-            TEntity entityToDelete = dbSet.Find(id);
-            Delete(entityToDelete);
+            TEntity entity = dbSet.Find(id);
+            Delete(entity);
         }
 
-        public virtual void Delete(TEntity entityToDelete)
+        public virtual void Delete(TEntity entity)
         {
-            if (DbContext.Entry(entityToDelete).State == EntityState.Detached)
+            if (DbContext.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entityToDelete);
+                dbSet.Attach(entity);
             }
-            dbSet.Remove(entityToDelete);
+            dbSet.Remove(entity);
         }
 
-        public virtual void Update(TEntity entityToUpdate)
+        public virtual void Update(TEntity entity)
         {
-            dbSet.Attach(entityToUpdate);
-            DbContext.Entry(entityToUpdate).State = EntityState.Modified;
+            dbSet.Attach(entity);
+            DbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }

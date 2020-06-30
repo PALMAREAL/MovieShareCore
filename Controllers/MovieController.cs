@@ -40,18 +40,14 @@ namespace MovieShareCore.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var movie = await MovieService.GetEntity(id.Value);
 
-            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
-
             if (movie == null)
-            {
                 return NotFound();
-            }
+
+            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
 
             return View(movieViewModel);
         }
@@ -60,6 +56,7 @@ namespace MovieShareCore.Controllers
         public IActionResult Create()
         {
             ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id");
+            
             return View();
         }
 
@@ -68,33 +65,38 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Director,ReleaseDate,Duration,GenreId,Country,Budget")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,Director,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
-                await _context.SaveChangesAsync();
+                var movie = Mapper.Map<Movie>(movieViewModel);
+
+                await MovieService.Create(movie);
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movie.GenreId);
-            return View(movie);
+            
+            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
+            
+            return View(movieViewModel);
         }
 
         // GET: Movie/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = await MovieService.GetEntity(id.Value);
+
             if (movie == null)
-            {
                 return NotFound();
-            }
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movie.GenreId);
-            return View(movie);
+
+            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+
+            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
+
+            return View(movieViewModel);
         }
 
         // POST: Movie/Edit/5
@@ -102,54 +104,41 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,ReleaseDate,Duration,GenreId,Country,Budget")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
         {
-            if (id != movie.Id)
+            if (id != movieViewModel.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(movie);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MovieExists(movie.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                var movie = Mapper.Map<Movie>(movieViewModel);
+
+                await MovieService.Update(movie);
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movie.GenreId);
-            return View(movie);
+            
+            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
+            
+            return View(movieViewModel);
         }
 
         // GET: Movie/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var movie = await _context.Movies
-                .Include(m => m.Genre)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
-            {
+            var movie = await MovieService.GetEntity(id.Value);
+
+            if (movie == null) 
                 return NotFound();
-            }
 
-            return View(movie);
+            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+
+            return View(movieViewModel);
         }
 
         // POST: Movie/Delete/5
@@ -157,15 +146,9 @@ namespace MovieShareCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movie = await _context.Movies.FindAsync(id);
-            _context.Movies.Remove(movie);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            await MovieService.Delete(id);
 
-        private bool MovieExists(int id)
-        {
-            return _context.Movies.Any(e => e.Id == id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
