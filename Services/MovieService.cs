@@ -28,14 +28,14 @@ namespace MovieShareCore.Services
             UoW.MovieRepository.Delete(movie);
         }
 
-        public Movie GetById(int id)
+        public async Task<Movie> GetEntity(int id)
         {
-            return UoW.MovieRepository.GetByID(id);
+            return await UoW.MovieRepository.GetEntity(id);
         }
         
-        public async Task<IEnumerable<Movie>> GetAll()
+        public async Task<IEnumerable<Movie>> GetAllEntities()
         {
-            return await UoW.MovieRepository.Get(null, null, "Genre");
+            return await UoW.MovieRepository.GetAllEntities();
         }
     }
 }

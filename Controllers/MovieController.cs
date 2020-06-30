@@ -29,14 +29,11 @@ namespace MovieShareCore.Controllers
         // GET: Movie
         public async Task<IActionResult> Index()
         {
-            var movies = await MovieService.GetAll();
+            var movies = await MovieService.GetAllEntities();
             
             var movieViewModel = Mapper.Map<IEnumerable<MovieViewModel>>(movies);
            
             return View(movieViewModel);
-
-            //var applicationDbContext = _context.Movies.Include(m => m.Genre);
-            //return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Movie/Details/5
@@ -47,15 +44,16 @@ namespace MovieShareCore.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movies
-                .Include(m => m.Genre)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movie = await MovieService.GetEntity(id.Value);
+
+            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+
             if (movie == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(movieViewModel);
         }
 
         // GET: Movie/Create

@@ -12,8 +12,8 @@ namespace MovieShareCore.Services
 
         public void Delete(Movie movie);
 
-        public Movie GetById(int id);
+        public Task<Movie> GetEntity(int id);
 
-        public Task<IEnumerable<Movie>> GetAll();
+        public Task<IEnumerable<Movie>> GetAllEntities();
     }
 }
