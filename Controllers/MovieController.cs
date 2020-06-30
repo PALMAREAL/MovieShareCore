@@ -14,19 +14,14 @@ using MovieShareCore.ViewModels.Factory;
 
 namespace MovieShareCore.Controllers
 {
-    public class MovieController : Controller
+    public class MovieController : BaseController
     {
         private IMovieService MovieService;
-        private IServiceProvider ServiceProvider;
-        private readonly IMapper Mapper;
-        private ApplicationDbContext _context;
 
-        public MovieController(IMovieService movieService, IServiceProvider serviceProvider, IMapper mapper, ApplicationDbContext context)
+        public MovieController(IMovieService movieService, IServiceProvider serviceProvider, IMapper mapper)
+            : base(serviceProvider, mapper)
         {
             MovieService = movieService;
-            ServiceProvider = serviceProvider;
-            Mapper = mapper;
-            _context = context;
         }
 
         // GET: Movie
@@ -58,10 +53,12 @@ namespace MovieShareCore.Controllers
         // GET: Movie/Create
         public IActionResult Create()
         {
-            var movieViewModel = ((MovieViewModelFactory)ServiceProvider.GetService(typeof(MovieViewModelFactory))).Create();
+            var movieViewModel = GetInstance<MovieViewModelFactory>();
 
             return View(movieViewModel);
         }
+
+
 
         // POST: Movie/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -79,8 +76,6 @@ namespace MovieShareCore.Controllers
                 return RedirectToAction(nameof(Index));
             }
             
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
-            
             return View(movieViewModel);
         }
 
@@ -96,8 +91,6 @@ namespace MovieShareCore.Controllers
                 return NotFound();
 
             var movieViewModel = Mapper.Map<MovieViewModel>(movie);
-
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
 
             return View(movieViewModel);
         }
@@ -122,8 +115,6 @@ namespace MovieShareCore.Controllers
                 
                 return RedirectToAction(nameof(Index));
             }
-            
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id", movieViewModel.GenreId);
             
             return View(movieViewModel);
         }
