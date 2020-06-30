@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MovieShareCore.Services;
 using AutoMapper;
+using MovieShareCore.ViewModels.Factory;
 
 namespace MovieShareCore
 {
@@ -44,6 +45,7 @@ namespace MovieShareCore
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IDirectorRepository, DirectorRepository>();
+            services.AddScoped<MovieViewModelFactory>();
 
         }
 

@@ -10,18 +10,21 @@ using MovieShareCore.Data;
 using MovieShareCore.Models;
 using MovieShareCore.Services;
 using MovieShareCore.ViewModels;
+using MovieShareCore.ViewModels.Factory;
 
 namespace MovieShareCore.Controllers
 {
     public class MovieController : Controller
     {
         private IMovieService MovieService;
+        private IServiceProvider ServiceProvider;
         private readonly IMapper Mapper;
-        private ApplicationDbContext _context; 
+        private ApplicationDbContext _context;
 
-        public MovieController(IMovieService movieService, IMapper mapper, ApplicationDbContext context)
+        public MovieController(IMovieService movieService, IServiceProvider serviceProvider, IMapper mapper, ApplicationDbContext context)
         {
             MovieService = movieService;
+            ServiceProvider = serviceProvider;
             Mapper = mapper;
             _context = context;
         }
@@ -55,9 +58,9 @@ namespace MovieShareCore.Controllers
         // GET: Movie/Create
         public IActionResult Create()
         {
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Id");
-            
-            return View();
+            var movieViewModel = ((MovieViewModelFactory)ServiceProvider.GetService(typeof(MovieViewModelFactory))).Create();
+
+            return View(movieViewModel);
         }
 
         // POST: Movie/Create
@@ -65,7 +68,7 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Director,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
+        public async Task<IActionResult> Create([Bind("Id,Title,Director,DirectorSelected,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
         {
             if (ModelState.IsValid)
             {

@@ -1,4 +1,5 @@
-﻿using MovieShareCore.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieShareCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels
 {
-    public class MovieViewModel
+    public class MovieViewModel : ViewModel
     {
         public int Id { get; set; }
 
@@ -33,5 +34,9 @@ namespace MovieShareCore.ViewModels
 
 
         public int? Budget { get; set; }
+
+        public IEnumerable<SelectListItem> Directors { get; set; }
+
+        public string DirectorSelected { get; set; }
     }
 }
