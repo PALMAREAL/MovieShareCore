@@ -2,54 +2,57 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MovieShareCore.Data;
 using MovieShareCore.Models;
 using MovieShareCore.Services;
+using MovieShareCore.ViewModels;
+using MovieShareCore.ViewModels.Factory;
 
 namespace MovieShareCore.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerController : BaseController
     {
-        private readonly ApplicationDbContext _context;
         private ICustomerService CustomerService;
 
-        public CustomerController(ApplicationDbContext context, ICustomerService customerService)
+        public CustomerController(ICustomerService customerService, IServiceProvider serviceProvider, IMapper mapper)
+            : base(serviceProvider, mapper)
         {
-            _context = context;
             CustomerService = customerService;
         }
 
         // GET: Customer
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            var customers = await CustomerService.GetAll();
+
+            var customerViewModel = Mapper.Map<IEnumerable<CustomerViewModel>>(customers);
+
+            return View(customerViewModel);
         }
 
         // GET: Customer/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var customer = await CustomerService.GetById(id.Value);
+
             if (customer == null)
-            {
                 return NotFound();
-            }
 
-            return View(customer);
+            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+            return View(customerViewModel);
         }
+
 
         // GET: Customer/Create
         public IActionResult Create()
         {
-            return View();
+            var customerViewModel = GetInstance<CustomerViewModelFactory>();
+            return View(customerViewModel);
         }
 
         // POST: Customer/Create
@@ -57,31 +60,33 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,Admin")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,Admin")] CustomerViewModel customerViewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                var customer = Mapper.Map<Customer>(customerViewModel);
+
+                await CustomerService.Create(customer);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+            return View(customerViewModel);
         }
 
         // GET: Customer/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var customer = await _context.Customers.FindAsync(id);
+            var customer = await CustomerService.GetById(id.Value);
+
+            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+
             if (customer == null)
-            {
                 return NotFound();
-            }
-            return View(customer);
+            
+            return View(customerViewModel);
         }
 
         // POST: Customer/Edit/5
@@ -89,52 +94,38 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Mail,Country,Admin")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Mail,Country,Admin")] CustomerViewModel customerViewModel)
         {
-            if (id != customer.Id)
-            {
+            if (id != customerViewModel.Id)
                 return NotFound();
-            }
+            
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(customer);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CustomerExists(customer.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                var customer = Mapper.Map<Customer>(customerViewModel);
+
+                await CustomerService.Update(customer);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(customer);
+
+            return View(customerViewModel);
         }
 
         // GET: Customer/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var customer = await CustomerService.GetById(id.Value);
+
             if (customer == null)
-            {
                 return NotFound();
-            }
 
-            return View(customer);
+            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+
+            return View(customerViewModel);
         }
 
         // POST: Customer/Delete/5
@@ -142,15 +133,10 @@ namespace MovieShareCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customer = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
+            await CustomerService.Delete(id);
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomerExists(int id)
-        {
-            return _context.Customers.Any(e => e.Id == id);
-        }
     }
 }

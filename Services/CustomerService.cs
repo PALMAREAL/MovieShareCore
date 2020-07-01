@@ -13,24 +13,33 @@ namespace MovieShareCore.Services
         public CustomerService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
 
-        public void Create(Customer customer)
+        public async Task Create(Customer customer)
         {
             UoW.CustomerRepository.Insert(customer);
+            await UoW.SaveAsync();
         }
 
-        public void Update(Customer customer)
+        public async Task Update(Customer customer)
         {
             UoW.CustomerRepository.Update(customer);
+            await UoW.SaveAsync();
         }
 
-        public void Delete(Customer customer)
+        public async Task Delete(int id)
+        {
+            UoW.CustomerRepository.Delete(id);
+            await UoW.SaveAsync();
+        }
+
+        public async Task Delete(Customer customer)
         {
             UoW.CustomerRepository.Delete(customer);
+            await UoW.SaveAsync();
         }
 
-        public Customer GetById(int id)
+        public async Task<Customer> GetById(int id)
         {
-            return UoW.CustomerRepository.GetByID(id);
+            return await UoW.CustomerRepository.GetByID(id);
         }
 
         public async Task<IEnumerable<Customer>> GetAll()

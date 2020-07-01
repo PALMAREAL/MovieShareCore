@@ -13,6 +13,7 @@ namespace MovieShareCore.AutoMapper
         public CustomerProfile()
         {
             CreateMap<Customer, CustomerViewModel>();
+            CreateMap<CustomerViewModel, Customer>();
         }
     }
 }

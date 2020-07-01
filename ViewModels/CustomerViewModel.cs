@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels
 {
-    public class CustomerViewModel
+    public class CustomerViewModel : ViewModel
     {
         public int Id { get; set; }
 
