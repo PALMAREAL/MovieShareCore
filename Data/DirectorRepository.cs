@@ -11,5 +11,10 @@ namespace MovieShareCore.Data
         public DirectorRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<Director> GetByID(int id)
+        {
+            return await Task.Run(() => Get(m => m.Id == id).Result.FirstOrDefault());
+        }
     }
 }

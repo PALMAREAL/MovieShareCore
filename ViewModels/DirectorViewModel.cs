@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels
 {
-    public class DirectorViewModel
+    public class DirectorViewModel : ViewModel
     {
         public int Id { get; set; }
 

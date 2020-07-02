@@ -47,6 +47,7 @@ namespace MovieShareCore
             services.AddScoped<IDirectorRepository, DirectorRepository>();
             services.AddScoped<MovieViewModelFactory>();
             services.AddScoped<CustomerViewModelFactory>();
+            services.AddScoped<DirectorViewModelFactory>();
 
         }
 

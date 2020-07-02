@@ -1,4 +1,4 @@
-﻿@model MovieShareCore.Models.Director
+﻿@model MovieShareCore.ViewModels.DirectorViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -26,7 +26,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <partial name="_Countries" />
+                @*<partial name="_Countries" />*@
+                <input asp-for="Country" class="form-control" />
                 <span id="country" class="text-danger"></span>
             </div>
             <div class="form-group">

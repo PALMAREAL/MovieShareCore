@@ -13,6 +13,7 @@ namespace MovieShareCore.AutoMapper
         public DirecctorProfile()
         {
             CreateMap<Director, DirectorViewModel>();
+            CreateMap<DirectorViewModel, Director>();
         }
     }
 }

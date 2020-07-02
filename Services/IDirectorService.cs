@@ -6,13 +6,15 @@ namespace MovieShareCore.Services
 {
     public interface IDirectorService
     {
-        public void Create(Director director);
+        public Task Create(Director director);
 
-        public void Update(Director director);
+        public Task Update(Director director);
 
-        public void Delete(Director director);
+        public Task Delete(int id);
 
-        public Director GetById(int id);
+        public Task Delete(Director director);
+
+        public Task<Director> GetById(int id);
 
         public Task<IEnumerable<Director>> GetAll();
 
