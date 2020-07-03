@@ -5,6 +5,6 @@ namespace MovieShareCore.Data
 {
     public interface IDirectorRepository : IRepository<Director>
     {
-        public Task<Director> GetByID(int id);
+      
     }
 }

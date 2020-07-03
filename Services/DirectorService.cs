@@ -10,7 +10,8 @@ namespace MovieShareCore.Services
     public class DirectorService : ServiceBase, IDirectorService
     {
 
-        public DirectorService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public DirectorService(IUnitOfWork unitOfWork) 
+            : base(unitOfWork) { }
 
 
         public async Task Create(Director director)
@@ -39,7 +40,7 @@ namespace MovieShareCore.Services
 
         public async Task<Director> GetById(int id)
         {
-            return await UoW.DirectorRepository.GetByID(id);
+            return await UoW.DirectorRepository.GetById(id);
         }
 
         public async Task<IEnumerable<Director>> GetAll()

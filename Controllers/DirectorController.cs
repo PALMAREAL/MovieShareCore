@@ -115,8 +115,6 @@ namespace MovieShareCore.Controllers
             return View(directorViewModel);
         }
 
-
-
         // GET: Director/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -137,9 +135,9 @@ namespace MovieShareCore.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
-        {          
+        {
             await DirectorService.Delete(id);
-           
+
             return RedirectToAction(nameof(Index));
         }
     }
