@@ -13,14 +13,14 @@ namespace MovieShareCore.Data
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
 
-        TEntity GetByID(object id);
+        Task<TEntity> GetById(object id);
 
         void Insert(TEntity entity);
 
         void Delete(object id);
 
-        void Delete(TEntity entityToDelete);
+        void Delete(TEntity entity);
 
-        void Update(TEntity entityToUpdate);
+        void Update(TEntity entity);
     }
 }

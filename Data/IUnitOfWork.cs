@@ -16,6 +16,6 @@ namespace MovieShareCore.Data
 
         Task SaveAsync();
 
-        void RollBack();
+        Task RollBackAsync();
     }
 }

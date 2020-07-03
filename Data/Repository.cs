@@ -38,7 +38,7 @@ namespace MovieShareCore.Data
 
             if (orderBy != null)
             {
-                return await Task.Run<IEnumerable<TEntity>>(() => orderBy(query).ToList()); 
+                return await Task.Run<IEnumerable<TEntity>>(() => orderBy(query).ToList());
             }
             else
             {
@@ -46,9 +46,9 @@ namespace MovieShareCore.Data
             }
         }
 
-        public virtual TEntity GetByID(object id)
+        public async virtual Task<TEntity> GetById(object id)
         {
-            return dbSet.Find(id);
+            return await dbSet.FindAsync(id);
         }
 
         public virtual void Insert(TEntity entity)

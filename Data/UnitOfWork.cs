@@ -10,7 +10,11 @@ namespace MovieShareCore.Data
     {
         private ApplicationDbContext DbContext;
 
-        public UnitOfWork(ApplicationDbContext dbContext, IMovieRepository movieRepository, ICustomerRepository customerRepository, IDirectorRepository directorRepository)
+        public UnitOfWork(
+            ApplicationDbContext dbContext, 
+            IMovieRepository movieRepository, 
+            ICustomerRepository customerRepository, 
+            IDirectorRepository directorRepository)
         {
             DbContext = dbContext;
             MovieRepository = movieRepository;
@@ -24,8 +28,8 @@ namespace MovieShareCore.Data
 
         public IDirectorRepository DirectorRepository { get; set; }
 
-
-        public void RollBack()
+       
+        public Task RollBackAsync()
         {
             throw new NotImplementedException();
         }

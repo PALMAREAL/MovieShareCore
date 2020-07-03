@@ -10,7 +10,8 @@ namespace MovieShareCore.Services
     public class CustomerService : ServiceBase, ICustomerService
     {
 
-        public CustomerService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public CustomerService(IUnitOfWork unitOfWork) 
+            : base(unitOfWork) { }
 
 
         public async Task Create(Customer customer)
@@ -39,7 +40,7 @@ namespace MovieShareCore.Services
 
         public async Task<Customer> GetById(int id)
         {
-            return await UoW.CustomerRepository.GetByID(id);
+            return await UoW.CustomerRepository.GetById(id);
         }
 
         public async Task<IEnumerable<Customer>> GetAll()

@@ -44,6 +44,7 @@ namespace MovieShareCore.Controllers
                 return NotFound();
 
             var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+
             return View(customerViewModel);
         }
 
@@ -52,6 +53,7 @@ namespace MovieShareCore.Controllers
         public IActionResult Create()
         {
             var customerViewModel = GetInstance<CustomerViewModelFactory>();
+
             return View(customerViewModel);
         }
 
@@ -70,6 +72,7 @@ namespace MovieShareCore.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(customerViewModel);
         }
 
