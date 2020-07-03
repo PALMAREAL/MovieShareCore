@@ -53,5 +53,13 @@ namespace MovieShareCore.ViewModels
         public IEnumerable<SelectListItem> Directors { get; set; }
 
         public string DirectorSelected { get; set; }
+
+        public IEnumerable<SelectListItem> Countries { get; set; }
+
+        public string CountrySelected { get; set; }
+
+        public IEnumerable<SelectListItem> Genres { get; set; }
+
+        public string GenreSelected { get; set; }
     }
 }

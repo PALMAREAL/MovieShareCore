@@ -31,7 +31,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <partial name="_Countries" />
+                <select asp-for="CountrySelected"
+                        asp-items="Model.Countries"
+                        class="text-secondary"></select>
+                @*<partial name="_Countries" />*@
                 <span id="country" class="text-danger"></span>
             </div>
 

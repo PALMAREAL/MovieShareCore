@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -34,5 +35,9 @@ namespace MovieShareCore.ViewModels
 
         [Display(Name = "Admin")]
         public bool Admin { get; set; }
+
+        public IEnumerable<SelectListItem> Countries { get; set; }
+
+        public string CountrySelected { get; set; }
     }
 }
