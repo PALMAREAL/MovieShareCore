@@ -15,26 +15,26 @@ namespace MovieShareCore.Services
 
         public async Task Create(Movie movie)
         {
-            UoW.MovieRepository.Insert(movie);
-            await UoW.SaveAsync();
+            await UoW.MovieRepository.Insert(movie)
+                .ContinueWith(x => UoW.SaveAsync());
         }
 
         public async Task Update(Movie movie)
         {
-            UoW.MovieRepository.Update(movie);
-            await UoW.SaveAsync();
+            await UoW.MovieRepository.Update(movie)
+                .ContinueWith(x => UoW.SaveAsync());
         }
 
         public async Task Delete(int id)
         {
-            UoW.MovieRepository.Delete(id);
-            await UoW.SaveAsync();
+            await UoW.MovieRepository.Delete(id)
+                .ContinueWith(x => UoW.SaveAsync());
         }
 
         public async Task Delete(Movie movie)
         {
-            UoW.MovieRepository.Delete(movie);
-            await UoW.SaveAsync();
+            await UoW.MovieRepository.Delete(movie)
+                .ContinueWith(x => UoW.SaveAsync());
         }
 
         public async Task<Movie> GetEntity(int id)

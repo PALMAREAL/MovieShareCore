@@ -51,30 +51,33 @@ namespace MovieShareCore.Data
             return await dbSet.FindAsync(id);
         }
 
-        public virtual void Insert(TEntity entity)
+        public async virtual Task Insert(TEntity entity)
         {
-            dbSet.Add(entity);
+           await dbSet.AddAsync(entity);
         }
 
-        public virtual void Delete(object id)
+        public async virtual Task Delete(object id)
         {
-            TEntity entity = dbSet.Find(id);
-            Delete(entity);
+            var entity = dbSet.FindAsync(id);
+
+            await Delete(entity);
         }
 
-        public virtual void Delete(TEntity entity)
+        public async virtual Task Delete(TEntity entity)
         {
             if (DbContext.Entry(entity).State == EntityState.Detached)
-            {
                 dbSet.Attach(entity);
-            }
-            dbSet.Remove(entity);
+
+            await Task.Run(() => dbSet.Remove(entity));
         }
 
-        public virtual void Update(TEntity entity)
+        public async virtual Task Update(TEntity entity)
         {
-            dbSet.Attach(entity);
-            DbContext.Entry(entity).State = EntityState.Modified;
+            await Task.Run(() =>
+            {  
+                dbSet.Attach(entity);
+                DbContext.Entry(entity).State = EntityState.Modified;
+            }); 
         }
     }
 }

@@ -15,12 +15,12 @@ namespace MovieShareCore.Data
 
         Task<TEntity> GetById(object id);
 
-        void Insert(TEntity entity);
+        Task Insert(TEntity entity);
 
-        void Delete(object id);
+        Task Delete(object id);
 
-        void Delete(TEntity entity);
+        Task Delete(TEntity entity);
 
-        void Update(TEntity entity);
+        Task Update(TEntity entity);
     }
 }
