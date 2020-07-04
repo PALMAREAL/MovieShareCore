@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MovieShareCore.Data.Configurations;
 using MovieShareCore.Models;
 
 namespace MovieShareCore.Data
@@ -21,5 +22,11 @@ namespace MovieShareCore.Data
         public DbSet<Director> Directors { get; set; }
 
         public DbSet<Country> Countries { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CountryConfiguration());
+        }
     }
 }
+
