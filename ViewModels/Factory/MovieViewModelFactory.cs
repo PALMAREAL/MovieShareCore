@@ -22,7 +22,15 @@ namespace MovieShareCore.ViewModels.Factory
                 .Result
                 .Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
 
-            return new MovieViewModel() { Directors = directors };
+            var countries = DirectorService.GetCountries()
+                .Result
+                .Select(x => new SelectListItem { Value = x.Code.ToString(), Text = x.Name });
+
+            return new MovieViewModel
+            { 
+                Directors = directors,
+                Countries = countries
+            };
         }
     }
 }

@@ -14,12 +14,14 @@ namespace MovieShareCore.Data
             ApplicationDbContext dbContext, 
             IMovieRepository movieRepository, 
             ICustomerRepository customerRepository, 
-            IDirectorRepository directorRepository)
+            IDirectorRepository directorRepository,
+            ICountryRepository countryRepository)
         {
             DbContext = dbContext;
             MovieRepository = movieRepository;
             CustomerRepository = customerRepository;
             DirectorRepository = directorRepository;
+            CountryRepository = countryRepository;
         }
 
         public IMovieRepository MovieRepository { get; set; }
@@ -28,7 +30,8 @@ namespace MovieShareCore.Data
 
         public IDirectorRepository DirectorRepository { get; set; }
 
-       
+        public ICountryRepository CountryRepository { get; set; }
+
         public Task RollBackAsync()
         {
             throw new NotImplementedException();

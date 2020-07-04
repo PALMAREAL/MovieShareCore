@@ -18,5 +18,6 @@ namespace MovieShareCore.Services
 
         public Task<IEnumerable<Director>> GetAll();
 
+        public Task<IEnumerable<Country>> GetCountries();
     }
 }

@@ -14,6 +14,8 @@ namespace MovieShareCore.Data
 
         IDirectorRepository DirectorRepository { get; }
 
+        ICountryRepository CountryRepository { get; }
+
         Task SaveAsync();
 
         Task RollBackAsync();
