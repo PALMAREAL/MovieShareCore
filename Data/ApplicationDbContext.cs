@@ -26,6 +26,14 @@ namespace MovieShareCore.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
+
+            modelBuilder.ApplyConfiguration(new GenreConfiguration());
+
+            modelBuilder.ApplyConfiguration(new MovieConfiguration());
+
+            modelBuilder.ApplyConfiguration(new DirectorConfiguration());
+
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
         }
     }
 }
