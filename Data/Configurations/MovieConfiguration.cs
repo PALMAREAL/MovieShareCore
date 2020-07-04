@@ -10,13 +10,12 @@ namespace MovieShareCore.Data.Configurations
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
             builder.ToTable("Movies");
-            builder.Property(s => s.Id)
-                .ValueGeneratedOnAdd();
 
             builder.HasData
             (
                 new Movie
-                { 
+                {
+                    Id = 5,
                     Title = "City Lights", 
                     Director = "Charles Chaplin", 
                     ReleaseDate = new DateTime(1931, 2, 15),
@@ -27,6 +26,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Movie
                 {
+                    Id = 6,
                     Title = "Pulp Fiction",
                     Director = "Quentin Tarantino",
                     ReleaseDate = new DateTime(1994, 5, 12),
@@ -37,6 +37,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Movie
                 {
+                    Id = 8,
                     Title = "Vertigo",
                     Director = "Alfred Hitchcock",
                     ReleaseDate = new DateTime(1958, 6, 1),
@@ -47,6 +48,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Movie
                 {
+                    Id = 10,
                     Title = "The seven Samurai",
                     Director = "Akira Kurosawa",
                     ReleaseDate = new DateTime(1954, 1, 1),
@@ -57,6 +59,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Movie
                 {
+                    Id = 11,
                     Title = "Roma",
                     Director = "Alfonso Cuarón",
                     ReleaseDate = new DateTime(2018, 1, 1),

@@ -10,13 +10,12 @@ namespace MovieShareCore.Data.Configurations
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
             builder.ToTable("Customers");
-            builder.Property(s => s.Id)
-                .ValueGeneratedOnAdd();
 
             builder.HasData
             (
                 new Customer 
                 { 
+                    Id = 2,
                     Name = "Malanga Yuca Frita", 
                     Birthdate = DateTime.Now, 
                     Mail = "mail1@sample.com", 
@@ -25,6 +24,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Customer
                 {
+                    Id = 6,
                     Name = "Julio Pérez",
                     Birthdate = DateTime.Now,
                     Mail = "mail2@sample.com",
@@ -33,6 +33,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Customer
                 {
+                    Id = 7,
                     Name = "Haliam Pérez",
                     Birthdate = DateTime.Now,
                     Mail = "mail3@sample.com",

@@ -10,13 +10,12 @@ namespace MovieShareCore.Data.Configurations
         public void Configure(EntityTypeBuilder<Director> builder)
         {
             builder.ToTable("Directors");
-            builder.Property(s => s.Id)
-                .ValueGeneratedOnAdd();
 
             builder.HasData
             (
                 new Director
                 { 
+                    Id = 2,
                     Name = "Steven Spielberg", 
                     Birthdate = new DateTime(1946, 12, 18),
                     Country = "USA", 
@@ -24,6 +23,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Director
                 {
+                    Id = 3,
                     Name = "Martin Scorsese",
                     Birthdate = new DateTime(1942, 11, 17),
                     Country = "USA",
@@ -31,6 +31,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Director
                 {
+                    Id = 4,
                     Name = "Alfred Hitchcock",
                     Birthdate = new DateTime(1899, 8, 13),
                     Country = "UK",
@@ -38,6 +39,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Director
                 {
+                    Id = 6,
                     Name = "Haliam Pérez",
                     Birthdate = new DateTime(1982, 2, 16),
                     Country = "CUBA",
@@ -45,6 +47,7 @@ namespace MovieShareCore.Data.Configurations
                 },
                 new Director
                 {
+                    Id = 10,
                     Name = "Tomás Gutierres Alea",
                     Birthdate = new DateTime(1928, 12, 11),
                     Country = "Cuba",
