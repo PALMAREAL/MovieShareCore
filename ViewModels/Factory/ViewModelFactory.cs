@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels.Factory
 {
-    public abstract class ViewModelFactory<TEntity> 
+    public abstract class ViewModelFactory<TEntity> : IViewModelFactory<TEntity>
         where TEntity : Entity
     {
         protected IMapper mapper;
