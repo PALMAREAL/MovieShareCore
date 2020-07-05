@@ -10,18 +10,15 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels.Factory
 {
-    public class MovieViewModelFactory //: ViewModelFactory
+    public class MovieViewModelFactory : ViewModelFactory<Movie>
     {
-        private readonly IMapper mapper;
-
         private readonly IEnumerable<SelectListItem> directors;
 
         private readonly IEnumerable<SelectListItem> countries;
 
         public MovieViewModelFactory(IMovieService movieService, IMapper mapper)
+            : base(mapper)
         {
-            this.mapper = mapper;
-
             directors = movieService.GetDirectors()
                 .Result
                 .Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
@@ -31,7 +28,7 @@ namespace MovieShareCore.ViewModels.Factory
                 .Select(x => new SelectListItem { Value = x.Code.ToString(), Text = x.Name });
         }
 
-        public MovieViewModel Create()
+        public override ViewModel<Movie> Create()
         {
             return new MovieViewModel
             { 
@@ -40,9 +37,9 @@ namespace MovieShareCore.ViewModels.Factory
             };
         }
 
-        public MovieViewModel From(Movie movie) 
+        public override ViewModel<Movie> From(Entity entity) 
         {
-            var movieViewModel = mapper.Map<MovieViewModel>(movie);
+            var movieViewModel = mapper.Map<MovieViewModel>(entity);
 
             movieViewModel.Directors = directors;
 

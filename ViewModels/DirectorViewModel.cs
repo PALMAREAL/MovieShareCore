@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieShareCore.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels
 {
-    public class DirectorViewModel : ViewModel
+    public class DirectorViewModel : ViewModel<Director>
     {
         public int Id { get; set; }
 

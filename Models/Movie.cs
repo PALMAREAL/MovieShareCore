@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.Models
 {
-    public class Movie
+    public class Movie : Entity
     {
         public int Id { get; set; }
 

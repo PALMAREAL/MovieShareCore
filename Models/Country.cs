@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.Models
 {
-    public class Country
+    public class Country : Entity
     {
         public int Id { get; set; }
 

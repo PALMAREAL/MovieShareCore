@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels
 {
-    public class MovieViewModel : ViewModel
+    public class MovieViewModel : ViewModel<Movie>
     {
         public int Id { get; set; }
 

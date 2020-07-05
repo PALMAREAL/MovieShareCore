@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieShareCore.Models;
 using MovieShareCore.Services;
 using System;
@@ -8,14 +9,20 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels.Factory
 {
-    public class CustomerViewModelFactory //: ViewModelFactory
+    public class CustomerViewModelFactory : ViewModelFactory<Customer>
     {
-        public CustomerViewModel Create()
+        public CustomerViewModelFactory(ICustomerService customerService, IMapper mapper)
+            : base(mapper)
+        {
+
+        }
+
+        public override ViewModel<Customer> Create()
         {
             return new CustomerViewModel();
         }
 
-        public CustomerViewModel From(Customer customer)
+        public override ViewModel<Customer> From(Entity entity)
         {
             return new CustomerViewModel();
         }
