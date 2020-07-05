@@ -46,5 +46,15 @@ namespace MovieShareCore.Services
         {
             return await UoW.MovieRepository.GetAllEntities();
         }
+
+        public async Task<IEnumerable<Country>> GetCountries()
+        {
+            return await UoW.CountryRepository.Get();
+        }
+
+        public async Task<IEnumerable<Director>> GetDirectors()
+        {
+            return await UoW.DirectorRepository.Get();
+        }
     }
 }

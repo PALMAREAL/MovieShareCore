@@ -16,21 +16,27 @@ namespace MovieShareCore.Controllers
 {
     public class MovieController : BaseController
     {
-        private IMovieService MovieService;
+        private readonly IMovieService movieService;
 
-        public MovieController(IMovieService movieService, IServiceProvider serviceProvider, IMapper mapper)
-            : base(serviceProvider, mapper)
+        private readonly MovieViewModelFactory movieViewModelFactory;
+
+        public MovieController(
+            IMovieService movieService, 
+            MovieViewModelFactory movieViewModelFactory, 
+            IMapper mapper)
+            : base(mapper)
         {
-            MovieService = movieService;
+            this.movieService = movieService;
+            this.movieViewModelFactory = movieViewModelFactory;
         }
 
         // GET: Movie
         public async Task<IActionResult> Index()
         {
-            var movies = await MovieService.GetAllEntities();
+            var movies = await movieService.GetAllEntities();
             
-            var movieViewModel = Mapper.Map<IEnumerable<MovieViewModel>>(movies);
-           
+            var movieViewModel = mapper.Map<IEnumerable<MovieViewModel>>(movies);
+
             return View(movieViewModel);
         }
 
@@ -40,12 +46,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var movie = await MovieService.GetEntity(id.Value);
+            var movie = await movieService.GetEntity(id.Value);
 
             if (movie == null)
                 return NotFound();
 
-            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+            var movieViewModel = mapper.Map<MovieViewModel>(movie);
 
             return View(movieViewModel);
         }
@@ -53,25 +59,23 @@ namespace MovieShareCore.Controllers
         // GET: Movie/Create
         public IActionResult Create()
         {
-            var movieViewModel = GetInstance<MovieViewModelFactory>();
+            var movieViewModel = movieViewModelFactory.Create();
 
             return View(movieViewModel);
         }
-
-
 
         // POST: Movie/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Director,DirectorSelected,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
+        public async Task<IActionResult> Create([Bind("Id,Title,Director,DirectorSelected,CountrySelected,ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
         {
             if (ModelState.IsValid)
             {
-                var movie = Mapper.Map<Movie>(movieViewModel);
+                var movie = mapper.Map<Movie>(movieViewModel);
 
-                await MovieService.Create(movie);
+                await movieService.Create(movie);
                 
                 return RedirectToAction(nameof(Index));
             }
@@ -85,12 +89,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var movie = await MovieService.GetEntity(id.Value);
+            var movie = await movieService.GetEntity(id.Value);
 
             if (movie == null)
                 return NotFound();
 
-            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+            var movieViewModel = movieViewModelFactory.From(movie);
 
             return View(movieViewModel);
         }
@@ -109,9 +113,9 @@ namespace MovieShareCore.Controllers
 
             if (ModelState.IsValid)
             {
-                var movie = Mapper.Map<Movie>(movieViewModel);
+                var movie = mapper.Map<Movie>(movieViewModel);
 
-                await MovieService.Update(movie);
+                await movieService.Update(movie);
                 
                 return RedirectToAction(nameof(Index));
             }
@@ -125,12 +129,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var movie = await MovieService.GetEntity(id.Value);
+            var movie = await movieService.GetEntity(id.Value);
 
             if (movie == null) 
                 return NotFound();
 
-            var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+            var movieViewModel = movieViewModelFactory.From(movie);
 
             return View(movieViewModel);
         }
@@ -140,7 +144,7 @@ namespace MovieShareCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await MovieService.Delete(id);
+            await movieService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }

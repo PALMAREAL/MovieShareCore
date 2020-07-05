@@ -16,20 +16,26 @@ namespace MovieShareCore.Controllers
 {
     public class DirectorController : BaseController
     {
-        private IDirectorService DirectorService;
+        private readonly IDirectorService directorService;
 
-        public DirectorController(IDirectorService directorService, IServiceProvider serviceProvider, IMapper mapper)
-            : base(serviceProvider, mapper)
+        private readonly DirectorViewModelFactory directorViewModelFactory;
+
+        public DirectorController(
+            IDirectorService directorService,
+            DirectorViewModelFactory directorViewModelFactory,
+            IMapper mapper)
+            : base(mapper)
         {
-            DirectorService = directorService;
+            this.directorService = directorService;
+            this.directorViewModelFactory = directorViewModelFactory;
         }
 
         // GET: Director
         public async Task<IActionResult> Index()
         {
-            var directors = await DirectorService.GetAll();
+            var directors = await directorService.GetAll();
 
-            var directorViewModel = Mapper.Map<IEnumerable<DirectorViewModel>>(directors);
+            var directorViewModel = mapper.Map<IEnumerable<DirectorViewModel>>(directors);
 
             return View(directorViewModel);
         }
@@ -40,12 +46,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var director = await DirectorService.GetById(id.Value);
+            var director = await directorService.GetById(id.Value);
 
             if (director == null)
                 return NotFound();
 
-            var directorViewModel = Mapper.Map<DirectorViewModel>(director);
+            var directorViewModel = mapper.Map<DirectorViewModel>(director);
 
             return View(directorViewModel);
         }
@@ -53,7 +59,7 @@ namespace MovieShareCore.Controllers
         // GET: Director/Create
         public IActionResult Create()
         {
-            var directorViewModel = GetInstance<DirectorViewModelFactory>();
+            var directorViewModel = directorViewModelFactory.Create();
 
             return View(directorViewModel);
         }
@@ -67,9 +73,9 @@ namespace MovieShareCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var director = Mapper.Map<Director>(directorViewModel);
+                var director = mapper.Map<Director>(directorViewModel);
 
-                await DirectorService.Create(director);
+                await directorService.Create(director);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -83,12 +89,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var director = await DirectorService.GetById(id.Value);
+            var director = await directorService.GetById(id.Value);
 
             if (director == null)
                 return NotFound();
 
-            var directorViewModel = Mapper.Map<DirectorViewModel>(director);
+            var directorViewModel = mapper.Map<DirectorViewModel>(director);
 
             return View(directorViewModel);
         }
@@ -105,9 +111,9 @@ namespace MovieShareCore.Controllers
 
             if (ModelState.IsValid)
             {
-                var director = Mapper.Map<Director>(directorViewModel);
+                var director = mapper.Map<Director>(directorViewModel);
 
-                await DirectorService.Update(director);
+                await directorService.Update(director);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -121,12 +127,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var director = await DirectorService.GetById(id.Value);
+            var director = await directorService.GetById(id.Value);
 
             if (director == null)
                 return NotFound();
 
-            var directorViewModel = Mapper.Map<DirectorViewModel>(director);
+            var directorViewModel = mapper.Map<DirectorViewModel>(director);
 
             return View(directorViewModel);
         }
@@ -136,7 +142,7 @@ namespace MovieShareCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await DirectorService.Delete(id);
+            await directorService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }

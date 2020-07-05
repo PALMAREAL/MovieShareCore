@@ -17,5 +17,9 @@ namespace MovieShareCore.Services
         public Task<Movie> GetEntity(int id);
 
         public Task<IEnumerable<Movie>> GetAllEntities();
+
+        public Task<IEnumerable<Country>> GetCountries();
+
+        public Task<IEnumerable<Director>> GetDirectors();
     }
 }

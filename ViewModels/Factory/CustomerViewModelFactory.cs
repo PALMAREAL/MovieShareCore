@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieShareCore.Models;
 using MovieShareCore.Services;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace MovieShareCore.ViewModels.Factory
 {
-    public class CustomerViewModelFactory : ViewModelFactory
+    public class CustomerViewModelFactory //: ViewModelFactory
     {
-        public override ViewModel Create()
+        public CustomerViewModel Create()
+        {
+            return new CustomerViewModel();
+        }
+
+        public CustomerViewModel From(Customer customer)
         {
             return new CustomerViewModel();
         }

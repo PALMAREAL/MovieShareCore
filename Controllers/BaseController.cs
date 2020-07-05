@@ -11,18 +11,11 @@ namespace MovieShareCore.Controllers
 {
     public class BaseController : Controller
     {
-        public IServiceProvider ServiceProvider;
-        public IMapper Mapper;
+        public readonly IMapper mapper;
 
-        public BaseController(IServiceProvider serviceProvider, IMapper mapper)
+        public BaseController(IMapper mapper)
         {
-            ServiceProvider = serviceProvider;
-            Mapper = mapper;
-        }
-
-        public ViewModel GetInstance<T>() where T : ViewModelFactory
-        {
-            return ((T)ServiceProvider.GetService(typeof(T))).Create();
+            this.mapper = mapper;
         }
     }
 }

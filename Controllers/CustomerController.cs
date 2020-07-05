@@ -14,20 +14,26 @@ namespace MovieShareCore.Controllers
 {
     public class CustomerController : BaseController
     {
-        private ICustomerService CustomerService;
+        private readonly ICustomerService customerService;
 
-        public CustomerController(ICustomerService customerService, IServiceProvider serviceProvider, IMapper mapper)
-            : base(serviceProvider, mapper)
+        private readonly CustomerViewModelFactory customerViewModelFactory;
+
+        public CustomerController(
+            ICustomerService customerService,
+            CustomerViewModelFactory customerViewModelFactory,
+            IMapper mapper)
+            : base(mapper)
         {
-            CustomerService = customerService;
+            this.customerService = customerService;
+            this.customerViewModelFactory = customerViewModelFactory;
         }
 
         // GET: Customer
         public async Task<IActionResult> Index()
         {
-            var customers = await CustomerService.GetAll();
+            var customers = await customerService.GetAll();
 
-            var customerViewModel = Mapper.Map<IEnumerable<CustomerViewModel>>(customers);
+            var customerViewModel = mapper.Map<IEnumerable<CustomerViewModel>>(customers);
 
             return View(customerViewModel);
         }
@@ -38,12 +44,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var customer = await CustomerService.GetById(id.Value);
+            var customer = await customerService.GetById(id.Value);
 
             if (customer == null)
                 return NotFound();
 
-            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+            var customerViewModel = mapper.Map<CustomerViewModel>(customer);
 
             return View(customerViewModel);
         }
@@ -52,7 +58,7 @@ namespace MovieShareCore.Controllers
         // GET: Customer/Create
         public IActionResult Create()
         {
-            var customerViewModel = GetInstance<CustomerViewModelFactory>();
+            var customerViewModel = customerViewModelFactory.Create();
 
             return View(customerViewModel);
         }
@@ -66,9 +72,9 @@ namespace MovieShareCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var customer = Mapper.Map<Customer>(customerViewModel);
+                var customer = mapper.Map<Customer>(customerViewModel);
 
-                await CustomerService.Create(customer);
+                await customerService.Create(customer);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -82,9 +88,9 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var customer = await CustomerService.GetById(id.Value);
+            var customer = await customerService.GetById(id.Value);
 
-            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+            var customerViewModel = mapper.Map<CustomerViewModel>(customer);
 
             if (customer == null)
                 return NotFound();
@@ -105,9 +111,9 @@ namespace MovieShareCore.Controllers
 
             if (ModelState.IsValid)
             {
-                var customer = Mapper.Map<Customer>(customerViewModel);
+                var customer = mapper.Map<Customer>(customerViewModel);
 
-                await CustomerService.Update(customer);
+                await customerService.Update(customer);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -121,12 +127,12 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var customer = await CustomerService.GetById(id.Value);
+            var customer = await customerService.GetById(id.Value);
 
             if (customer == null)
                 return NotFound();
 
-            var customerViewModel = Mapper.Map<CustomerViewModel>(customer);
+            var customerViewModel = mapper.Map<CustomerViewModel>(customer);
 
             return View(customerViewModel);
         }
@@ -136,7 +142,7 @@ namespace MovieShareCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await CustomerService.Delete(id);
+            await customerService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }
