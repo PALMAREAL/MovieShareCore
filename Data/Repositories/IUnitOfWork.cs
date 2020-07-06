@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieShareCore.Data
+namespace MovieShareCore.Data.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {

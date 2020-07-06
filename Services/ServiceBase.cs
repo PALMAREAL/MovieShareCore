@@ -1,4 +1,5 @@
 ﻿using MovieShareCore.Data;
+using MovieShareCore.Data.Repositories;
 
 namespace MovieShareCore.Services
 {

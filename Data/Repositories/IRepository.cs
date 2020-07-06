@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MovieShareCore.Data
+namespace MovieShareCore.Data.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {

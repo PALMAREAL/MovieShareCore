@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MovieShareCore.Data
+namespace MovieShareCore.Data.Repositories
 {
     public interface IMovieRepository : IRepository<Movie>
     {

@@ -1,6 +1,6 @@
 ﻿using MovieShareCore.Models;
 
-namespace MovieShareCore.Data
+namespace MovieShareCore.Data.Repositories
 {
     public interface ICountryRepository : IRepository<Country>
     {

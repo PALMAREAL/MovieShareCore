@@ -1,4 +1,5 @@
 ﻿using MovieShareCore.Data;
+using MovieShareCore.Data.Repositories;
 using MovieShareCore.Models;
 using System;
 using System.Collections.Generic;

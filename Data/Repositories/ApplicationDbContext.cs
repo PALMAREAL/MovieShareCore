@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieShareCore.Data.Configurations;
 using MovieShareCore.Models;
 
-namespace MovieShareCore.Data
+namespace MovieShareCore.Data.Repositories
 {
     public class ApplicationDbContext : IdentityDbContext
     {
