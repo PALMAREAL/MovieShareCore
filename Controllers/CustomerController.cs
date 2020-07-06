@@ -68,7 +68,7 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,Admin")] CustomerViewModel customerViewModel)
+        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,CountrySelected,Admin")] CustomerViewModel customerViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -90,10 +90,10 @@ namespace MovieShareCore.Controllers
 
             var customer = await customerService.GetById(id.Value);
 
-            var customerViewModel = mapper.Map<CustomerViewModel>(customer);
-
             if (customer == null)
                 return NotFound();
+
+            var customerViewModel = customerViewModelFactory.From(customer);
             
             return View(customerViewModel);
         }
