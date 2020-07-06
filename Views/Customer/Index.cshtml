@@ -6,7 +6,7 @@
 
 
 <ul id="navlist">
-<li><a href="#">Users</a></li>
+    <li><a asp-action="Index">User</a></li>
 </ul>
 
 <p style="margin-top: 20px; margin-bottom: 20px;">
@@ -21,7 +21,7 @@
 <table id="table-custom">
     <thead>
         <tr>
-            <th class="text-left" >
+            <th class="text-left">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -43,7 +43,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td class="text-left" >
+                <td class="text-left">
                     @Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id }, null)
                 </td>
                 <td>
@@ -62,7 +62,7 @@
                     <a asp-action="Details" asp-route-id="@item.Id" tooltip="Details" flow="up">
                         <i class="text-info fas fa-eye icons-crud"></i>
                     </a>
-                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="up">  
+                    <a asp-action="Edit" asp-route-id="@item.Id" tooltip="Edit" flow="up">
                         <i class="text-secondary fas fa-edit icons-crud"></i>
                     </a>
                     <a asp-action="Delete" asp-route-id="@item.Id" tooltip="Delete" flow="up">
