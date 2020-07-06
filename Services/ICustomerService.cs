@@ -18,6 +18,8 @@ namespace MovieShareCore.Services
         public Task<Customer> GetById(int id);
 
         public Task<IEnumerable<Customer>> GetAll();
-        
+
+        public Task<IEnumerable<Country>> GetCountries();
+
     }
 }

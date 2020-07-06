@@ -1,9 +1,6 @@
-﻿using MovieShareCore.Data;
-using MovieShareCore.Data.Repositories;
+﻿using MovieShareCore.Data.Repositories;
 using MovieShareCore.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MovieShareCore.Services

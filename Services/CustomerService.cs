@@ -11,7 +11,7 @@ namespace MovieShareCore.Services
     public class CustomerService : ServiceBase, ICustomerService
     {
 
-        public CustomerService(IUnitOfWork unitOfWork) 
+        public CustomerService(IUnitOfWork unitOfWork)
             : base(unitOfWork) { }
 
 
@@ -47,6 +47,12 @@ namespace MovieShareCore.Services
         public async Task<IEnumerable<Customer>> GetAll()
         {
             return await UoW.CustomerRepository.Get();
+        }
+
+        public async Task<IEnumerable<Country>> GetCountries()
+        {
+            return await UoW.CountryRepository.Get();
+
         }
     }
 }
