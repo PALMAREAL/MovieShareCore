@@ -54,5 +54,10 @@ namespace MovieShareCore.Services
         {
             return await UoW.DirectorRepository.Get();
         }
+
+        public async Task<IEnumerable<Genre>> GetGenres()
+        {
+            return await UoW.GenreRepository.Get();
+        }
     }
 }

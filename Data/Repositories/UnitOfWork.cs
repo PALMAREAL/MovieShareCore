@@ -15,13 +15,15 @@ namespace MovieShareCore.Data.Repositories
             IMovieRepository movieRepository, 
             ICustomerRepository customerRepository, 
             IDirectorRepository directorRepository,
-            ICountryRepository countryRepository)
+            ICountryRepository countryRepository,
+            IGenreRepository genreRepository)
         {
             DbContext = dbContext;
             MovieRepository = movieRepository;
             CustomerRepository = customerRepository;
             DirectorRepository = directorRepository;
             CountryRepository = countryRepository;
+            GenreRepository = genreRepository;
         }
 
         public IMovieRepository MovieRepository { get; set; }
@@ -31,6 +33,8 @@ namespace MovieShareCore.Data.Repositories
         public IDirectorRepository DirectorRepository { get; set; }
 
         public ICountryRepository CountryRepository { get; set; }
+
+        public IGenreRepository GenreRepository { get; set; }
 
         public Task RollBackAsync()
         {

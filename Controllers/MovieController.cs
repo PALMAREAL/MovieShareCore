@@ -65,8 +65,8 @@ namespace MovieShareCore.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Title,Director,DirectorSelected,CountrySelected," +
-            "ReleaseDate,Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
+            [Bind("Id,Title,Director,DirectorSelected,Country,CountrySelected," +
+            "ReleaseDate,Duration,GenreId,Budget")] MovieViewModel movieViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -102,8 +102,8 @@ namespace MovieShareCore.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
-            int id, [Bind("Id,Title,Director,ReleaseDate," +
-            "Duration,GenreId,Country,Budget")] MovieViewModel movieViewModel)
+            int id, [Bind("Id,Title,Director,DirectorSelected,Country,CountrySelected," +
+            "ReleaseDate,Duration,GenreId,Budget")] MovieViewModel movieViewModel)
         {
             if (id != movieViewModel.Id)
                 return NotFound();

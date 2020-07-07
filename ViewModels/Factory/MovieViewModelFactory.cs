@@ -13,6 +13,9 @@ namespace MovieShareCore.ViewModels.Factory
 
         private readonly IEnumerable<SelectListItem> countries;
 
+        private readonly IEnumerable<SelectListItem> genres;
+
+
         public MovieViewModelFactory(IMovieService movieService, IMapper mapper)
             : base(mapper)
         {
@@ -23,24 +26,31 @@ namespace MovieShareCore.ViewModels.Factory
             countries = movieService.GetCountries()
                 .Result
                 .Select(x => new SelectListItem { Value = x.Code.ToString(), Text = x.Name });
+
+            genres = movieService.GetGenres()
+               .Result
+               .Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
         }
 
         public override ViewModel<Movie> Create()
         {
             return new MovieViewModel
-            { 
+            {
                 Directors = directors,
-                Countries = countries
+                Countries = countries,
+                Genres = genres
             };
         }
 
-        public override ViewModel<Movie> From(Entity entity) 
+        public override ViewModel<Movie> From(Entity entity)
         {
             var movieViewModel = mapper.Map<MovieViewModel>(entity);
 
             movieViewModel.Directors = directors;
 
             movieViewModel.Countries = countries;
+
+            movieViewModel.Genres = genres;
 
             return movieViewModel;
         }
