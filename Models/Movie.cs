@@ -22,6 +22,7 @@ namespace MovieShareCore.Models
         [Display(Name = "Director")]
         public Director Director { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         public int DirectorId { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
@@ -45,6 +46,7 @@ namespace MovieShareCore.Models
         [Display(Name = "País")]
         public Country Country { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         public int CountryId { get; set; }
 
         [Display(Name = "Presupuesto")]
