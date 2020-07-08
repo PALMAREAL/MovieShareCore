@@ -19,7 +19,7 @@ namespace MovieShareCore.Data.Configurations
                     Name = "Malanga Yuca Frita", 
                     Birthdate = DateTime.Now, 
                     Mail = "mail1@sample.com", 
-                    Country = "Cuba", 
+                    CountryId = 53, 
                     Admin = true 
                 },
                 new Customer
@@ -28,7 +28,7 @@ namespace MovieShareCore.Data.Configurations
                     Name = "Julio Pérez",
                     Birthdate = DateTime.Now,
                     Mail = "mail2@sample.com",
-                    Country = "Cuba",
+                    CountryId = 55,
                     Admin = true
                 },
                 new Customer
@@ -37,7 +37,7 @@ namespace MovieShareCore.Data.Configurations
                     Name = "Haliam Pérez",
                     Birthdate = DateTime.Now,
                     Mail = "mail3@sample.com",
-                    Country = "Cuba",
+                    CountryId = 5,
                     Admin = true
                 }
             );
