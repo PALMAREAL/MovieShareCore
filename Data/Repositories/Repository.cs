@@ -60,7 +60,7 @@ namespace MovieShareCore.Data.Repositories
         {
             var entity = dbSet.FindAsync(id);
 
-            await Delete(entity);
+            await Delete(entity.Result);
         }
 
         public async virtual Task Delete(TEntity entity)
