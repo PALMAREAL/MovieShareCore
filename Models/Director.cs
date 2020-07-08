@@ -22,10 +22,11 @@ namespace MovieShareCore.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Birthdate { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
+       
         [Display(Name = "País")]
         public Country Country { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         public int CountryId { get; set; }
 
         [Display(Name = "Conocido por")]

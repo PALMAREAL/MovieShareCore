@@ -16,7 +16,6 @@ namespace MovieShareCore.Models
         [Display(Name = "Título")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [StringLength(50, MinimumLength = 1,
             ErrorMessage = " The name should be a maximum of 40 characters")]
         [Display(Name = "Director")]
@@ -35,14 +34,13 @@ namespace MovieShareCore.Models
         [Display(Name = "Duración")]
         public int Duration { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Género")]
         public Genre Genre { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Género")]
         public int GenreId { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "País")]
         public Country Country { get; set; }
 
