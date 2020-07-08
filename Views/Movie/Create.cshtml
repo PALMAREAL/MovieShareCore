@@ -21,10 +21,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Director" class="control-label"></label>
-                <select asp-for="DirectorSelected"
+                <select asp-for="DirectorId"
                         asp-items="Model.Directors"
                         class="text-secondary"></select>
-                @*<partial name="_Directors" />*@
                 <span id="director" class="text-danger"></span>
             </div>
 
@@ -40,13 +39,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Genre" class="control-label"></label>
-                <partial name="_Genres" />
+                <select asp-for="GenreId"
+                        asp-items="Model.Genres"
+                        class="text-secondary"></select>
                 <span id="genre" class="text-danger"></span>
                 @*<select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <select asp-for="CountrySelected"
+                <select asp-for="CountryId"
                         asp-items="Model.Countries"
                         class="text-secondary"></select>
                 @*<input asp-for="Country" class="form-control" />*@

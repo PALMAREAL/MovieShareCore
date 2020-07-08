@@ -88,7 +88,7 @@ namespace MovieShareCore.Controllers
             if (id == null)
                 return NotFound();
 
-            var customer = await customerService.GetById(id.Value);
+            var customer = await customerService.GetEntity(id.Value);
 
             if (customer == null)
                 return NotFound();

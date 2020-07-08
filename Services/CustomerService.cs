@@ -44,6 +44,11 @@ namespace MovieShareCore.Services
             return await UoW.CustomerRepository.GetById(id);
         }
 
+        public async Task<Customer> GetEntity(int id)
+        {
+            return await UoW.CustomerRepository.GetEntity(id);
+        }
+
         public async Task<IEnumerable<Customer>> GetAll()
         {
             return await UoW.CustomerRepository.Get();
@@ -52,7 +57,6 @@ namespace MovieShareCore.Services
         public async Task<IEnumerable<Country>> GetCountries()
         {
             return await UoW.CountryRepository.Get();
-
         }
     }
 }

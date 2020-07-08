@@ -11,5 +11,10 @@ namespace MovieShareCore.Data.Repositories
         public CustomerRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<Customer> GetEntity(int id)
+        {
+            return await Task.Run(() => Get(m => m.Id == id, null, "Country").Result.FirstOrDefault());
+        }
     }
 }
