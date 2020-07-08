@@ -18,7 +18,7 @@ namespace MovieShareCore.Data.Configurations
                     Id = 2,
                     Name = "Steven Spielberg", 
                     Birthdate = new DateTime(1946, 12, 18),
-                    Country = "USA", 
+                    CountryId = 24, 
                     Knowfor = "Schindler's List"
                 },
                 new Director
@@ -26,7 +26,7 @@ namespace MovieShareCore.Data.Configurations
                     Id = 3,
                     Name = "Martin Scorsese",
                     Birthdate = new DateTime(1942, 11, 17),
-                    Country = "USA",
+                    CountryId = 23,
                     Knowfor = "Taxi Driver"
                 },
                 new Director
@@ -34,7 +34,7 @@ namespace MovieShareCore.Data.Configurations
                     Id = 4,
                     Name = "Alfred Hitchcock",
                     Birthdate = new DateTime(1899, 8, 13),
-                    Country = "UK",
+                    CountryId = 22,
                     Knowfor = "Psycho"
                 },
                 new Director
@@ -42,7 +42,7 @@ namespace MovieShareCore.Data.Configurations
                     Id = 6,
                     Name = "Haliam Pérez",
                     Birthdate = new DateTime(1982, 2, 16),
-                    Country = "CUBA",
+                    CountryId = 21,
                     Knowfor = "Marina"
                 },
                 new Director
@@ -50,7 +50,7 @@ namespace MovieShareCore.Data.Configurations
                     Id = 10,
                     Name = "Tomás Gutierres Alea",
                     Birthdate = new DateTime(1928, 12, 11),
-                    Country = "Cuba",
+                    CountryId = 20,
                     Knowfor = "Memorias del Subdesarrollo"
                 }
             );
