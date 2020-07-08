@@ -18,7 +18,7 @@ namespace MovieShareCore.ViewModels.Factory
         {
             countries = directorService.GetCountries()
              .Result
-             .Select(x => new SelectListItem { Value = x.Code.ToString(), Text = x.Name });
+             .Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
         }
 
         public override ViewModel<Director> Create()

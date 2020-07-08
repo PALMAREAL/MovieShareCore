@@ -25,7 +25,7 @@ namespace MovieShareCore.ViewModels.Factory
 
             countries = movieService.GetCountries()
                 .Result
-                .Select(x => new SelectListItem { Value = x.Code.ToString(), Text = x.Name });
+                .Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name });
 
             genres = movieService.GetGenres()
                .Result
