@@ -20,7 +20,9 @@ namespace MovieShareCore.Models
         [StringLength(50, MinimumLength = 1,
             ErrorMessage = " The name should be a maximum of 40 characters")]
         [Display(Name = "Director")]
-        public string Director { get; set; }
+        public Director Director { get; set; }
+
+        public int DirectorId { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Año")]

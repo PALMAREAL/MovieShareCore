@@ -17,7 +17,7 @@ namespace MovieShareCore.Data.Configurations
                 {
                     Id = 5,
                     Title = "City Lights", 
-                    Director = "Charles Chaplin", 
+                    DirectorId = 2, 
                     ReleaseDate = new DateTime(1931, 2, 15),
                     Duration = 81,
                     GenreId = 9,
@@ -28,7 +28,7 @@ namespace MovieShareCore.Data.Configurations
                 {
                     Id = 6,
                     Title = "Pulp Fiction",
-                    Director = "Quentin Tarantino",
+                    DirectorId = 2,
                     ReleaseDate = new DateTime(1994, 5, 12),
                     Duration = 153,
                     GenreId = 1,
@@ -39,7 +39,7 @@ namespace MovieShareCore.Data.Configurations
                 {
                     Id = 8,
                     Title = "Vertigo",
-                    Director = "Alfred Hitchcock",
+                    DirectorId = 2,
                     ReleaseDate = new DateTime(1958, 6, 1),
                     Duration = 128,
                     GenreId = 1,
@@ -50,7 +50,7 @@ namespace MovieShareCore.Data.Configurations
                 {
                     Id = 10,
                     Title = "The seven Samurai",
-                    Director = "Akira Kurosawa",
+                    DirectorId = 2,
                     ReleaseDate = new DateTime(1954, 1, 1),
                     Duration = 207,
                     GenreId = 1,
@@ -61,7 +61,7 @@ namespace MovieShareCore.Data.Configurations
                 {
                     Id = 11,
                     Title = "Roma",
-                    Director = "Alfonso Cuarón",
+                    DirectorId = 2,
                     ReleaseDate = new DateTime(2018, 1, 1),
                     Duration = 135,
                     GenreId = 1,
