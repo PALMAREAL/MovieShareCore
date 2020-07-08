@@ -41,7 +41,9 @@ namespace MovieShareCore.Models
 
         [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "País")]
-        public string Country { get; set; }
+        public Country Country { get; set; }
+
+        public int CountryId { get; set; }
 
         [Display(Name = "Presupuesto")]
         [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]

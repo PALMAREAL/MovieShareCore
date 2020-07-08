@@ -21,7 +21,7 @@ namespace MovieShareCore.Data.Configurations
                     ReleaseDate = new DateTime(1931, 2, 15),
                     Duration = 81,
                     GenreId = 9,
-                    Country = "USA", 
+                    CountryId = 15, 
                     Budget = 250000 
                 },
                 new Movie
@@ -32,7 +32,7 @@ namespace MovieShareCore.Data.Configurations
                     ReleaseDate = new DateTime(1994, 5, 12),
                     Duration = 153,
                     GenreId = 1,
-                    Country = "USA",
+                    CountryId = 14,
                     Budget = 8000000
                 },
                 new Movie
@@ -43,7 +43,7 @@ namespace MovieShareCore.Data.Configurations
                     ReleaseDate = new DateTime(1958, 6, 1),
                     Duration = 128,
                     GenreId = 1,
-                    Country = "USA",
+                    CountryId = 13,
                     Budget = 2500000
                 },
                 new Movie
@@ -54,7 +54,7 @@ namespace MovieShareCore.Data.Configurations
                     ReleaseDate = new DateTime(1954, 1, 1),
                     Duration = 207,
                     GenreId = 1,
-                    Country = "JAPAN",
+                    CountryId = 12,
                     Budget = 5000000
                 },
                 new Movie
@@ -65,7 +65,7 @@ namespace MovieShareCore.Data.Configurations
                     ReleaseDate = new DateTime(2018, 1, 1),
                     Duration = 135,
                     GenreId = 1,
-                    Country = "USA",
+                    CountryId = 11,
                     Budget = 15000000
                 }
             );
