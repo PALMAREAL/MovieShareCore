@@ -14,26 +14,26 @@ namespace MovieShareCore.Services
 
         public async Task Create(Director director)
         {
-            await UoW.DirectorRepository.Insert(director)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.DirectorRepository.Insert(director).Wait(); 
+            await UoW.SaveAsync();
         }
 
         public async Task Update(Director director)
         {
-            await UoW.DirectorRepository.Update(director)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.DirectorRepository.Update(director).Wait();
+            await UoW.SaveAsync();
         }
 
         public async Task Delete(int id)
         {
-            await UoW.DirectorRepository.Delete(id)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.DirectorRepository.Delete(id).Wait();
+            await UoW.SaveAsync();
         }
 
         public async Task Delete(Director director)
         {
-            await UoW.DirectorRepository.Delete(director)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.DirectorRepository.Delete(director).Wait();
+            await UoW.SaveAsync();
         }
 
         public async Task<Director> GetById(int id)

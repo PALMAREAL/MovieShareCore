@@ -68,7 +68,7 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,CountrySelected,Admin")] CustomerViewModel customerViewModel)
+        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Mail,Country,CountryId,Admin")] CustomerViewModel customerViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace MovieShareCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Mail,Country,Admin")] CustomerViewModel customerViewModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Mail,Country,CountryId,Admin")] CustomerViewModel customerViewModel)
         {
             if (id != customerViewModel.Id)
                 return NotFound();

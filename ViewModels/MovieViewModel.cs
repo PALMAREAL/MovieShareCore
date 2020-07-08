@@ -29,7 +29,7 @@ namespace MovieShareCore.ViewModels
         [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Año")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime ReleaseDate { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]

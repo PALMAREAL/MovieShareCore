@@ -17,26 +17,26 @@ namespace MovieShareCore.Services
 
         public async Task Create(Customer customer)
         {
-            await UoW.CustomerRepository.Insert(customer)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.CustomerRepository.Insert(customer).Wait();
+            await UoW.SaveAsync();
         }
 
         public async Task Update(Customer customer)
         {
-            await UoW.CustomerRepository.Update(customer)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.CustomerRepository.Update(customer).Wait();
+            await UoW.SaveAsync();
         }
 
         public async Task Delete(int id)
         {
-            await UoW.CustomerRepository.Delete(id)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.CustomerRepository.Delete(id).Wait(); 
+            await UoW.SaveAsync();
         }
 
         public async Task Delete(Customer customer)
         {
-            await UoW.CustomerRepository.Delete(customer)
-                .ContinueWith(x => UoW.SaveAsync());
+            UoW.CustomerRepository.Delete(customer).Wait(); 
+            await UoW.SaveAsync();
         }
 
         public async Task<Customer> GetById(int id)
