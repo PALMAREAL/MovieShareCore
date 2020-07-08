@@ -18,11 +18,13 @@ namespace MovieShareCore.ViewModels
         [Display(Name = "Título")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [StringLength(50, MinimumLength = 1,
              ErrorMessage = " The name should be a maximum of 40 characters")]
         [Display(Name = "Director")]
-        public string Director { get; set; }
+        public Director Director { get; set; }
+
+        [Required(ErrorMessage = "{0} is required.")]
+        public int DirectorId { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Año")]
@@ -34,17 +36,18 @@ namespace MovieShareCore.ViewModels
         [Display(Name = "Duración")]
         public int Duration { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Género")]
         public Genre Genre { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Género")]
         public int GenreId { get; set; }
 
-        [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "País")]
-        public string Country { get; set; }
+        public Country Country { get; set; }
 
+        [Required(ErrorMessage = "{0} is required.")]
+        public int CountryId { get; set; }
 
         [Display(Name = "Presupuesto")]
         [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]

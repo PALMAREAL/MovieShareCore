@@ -29,10 +29,12 @@ namespace MovieShareCore.ViewModels
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string Mail { get; set; }
+    
+        [Display(Name = "País")]
+        public Country Country { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
-        [Display(Name = "País")]
-        public string Country { get; set; }
+        public int CountryId { get; set; }
 
         [Display(Name = "Admin")]
         public bool Admin { get; set; }
