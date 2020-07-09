@@ -43,15 +43,12 @@
                         asp-items="Model.Genres"
                         class="text-secondary"></select>
                 <span id="genre" class="text-danger"></span>
-                @*<select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
                 <select asp-for="CountryId"
                         asp-items="Model.Countries"
                         class="text-secondary"></select>
-                @*<input asp-for="Country" class="form-control" />*@
-                @*<partial name="_Countries" />*@
                 <span id="country" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -69,58 +66,9 @@
     </form>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-
-
-
-
-
-@* AUTOCOMPLETE COUNTRIES & GENRE
-    <div class="ui-widget">
-      <label for="tags">Tags: </label>
-      <input id="tags">
-    </div>
-*@
-
-@*<label>Genre <input id="search" type="text" placeholder="Type here..." /></label> *@
-
-
-
-@*<div class="form-create">
-        <h1>Add Movie!<span>Share your best films!</span></h1>
-        <form>
-            <div class="inner-wrap">
-                <label>Movie<input type="text" name="field1" /></label>
-                <label>
-                    Director
-                    <select>
-                        <partial name="_Directors" />
-                    </select>
-                </label>
-                <label>
-                    Release
-                    <select id="year"></select>
-                </label>
-                <label>Duration <input type="text" name="field4" /></label>
-                <label>
-                    Genre
-                    <select>
-                        <partial name="_Genres" />
-                    </select>
-                </label>
-                <label>
-                    Country
-                    <select>
-                        <partial name="_Countries" />
-                    </select>
-                </label>
-                <label>Budget <input type="text" name="field7" /></label>
-            </div>
-            <div class="action-button">
-                <input type="submit" value="Cancel" />
-                <input type="submit" value="OK" />
-            </div>
-        </form>
-    </div>*@

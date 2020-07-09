@@ -34,7 +34,6 @@
                 <select asp-for="CountryId"
                         asp-items="Model.Countries"
                         class="text-secondary"></select>
-                @*<partial name="_Countries" />*@
                 <span id="country" class="text-danger"></span>
             </div>
 
@@ -48,35 +47,9 @@
     </form>
 </div>
 
-
-
-@*<div class="form-create">
-        <h1>Add User!<span>More Users more films!</span></h1>
-        <form>
-            <div class="inner-wrap">
-                <label>Name<input type="text" name="field1" /></label>
-                <label>Birthdate <input type="date" name="field2" /></label>
-                <label>Mail<input type="email" name="field3" /></label>
-                <label>
-                    Country
-                    <select>
-                        <partial name="_Countries" />
-                    </select>
-                </label>
-            </div>
-            <div class="action-button">
-                <input type="submit" value="Cancel" />
-                <input type="submit" value="OK" />
-            </div>
-        </form>
-
-     Adapted Custom Checkbox
-    @*<div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck1" asp-for="Admin">
-        <label class="custom-control-label" for="customCheck1">@Html.DisplayNameFor(model => model.Admin)</label>
-    </div>
-    </div>*@
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

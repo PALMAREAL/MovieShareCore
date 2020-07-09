@@ -21,7 +21,7 @@ namespace MovieShareCore.ViewModels
         [Required(ErrorMessage = "{0} is required.")]
         [Display(Name = "Nacido")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Birthdate { get; set; }
 
         [Display(Name = "País")]
