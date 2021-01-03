@@ -10,6 +10,13 @@ namespace MovieShareCore.ViewModels
 {
     public class MovieViewModel : ViewModel<Movie>
     {
+        public MovieViewModel()
+        {
+            Directors = new List<SelectListItem>();
+            Countries = new List<SelectListItem>();
+            Genres = new List<SelectListItem>();
+        }
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]

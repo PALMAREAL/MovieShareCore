@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/css/sidebar.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    @*<link rel="stylesheet" href="~/css/moviecard.css" />*@
+    <link rel="stylesheet" href="~/css/moviecard.css" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
 </head>
 
 <body class="app">
@@ -26,7 +25,6 @@
             }, 300);
         });
     </script>
-
     <script>
         $(document).ready(function () {
             $("#submit").click(function () {
@@ -48,34 +46,27 @@
             });
         });
     </script>
-
     <header>
         <!-- ### Topbar Menu ### -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-                    <i class="fa fa-bars" style="margin-right: 150px; margin-left: -5px"></i>
-                </a>
-                @*<img src="~/img/logos/Camera.png" alt="" class="logo">*@
+                @*<img src="~/img/logos/Camera.png" alt="" class="logo">**@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="movieshare">
                         MovieShare
                     </span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
+                    <!-- ### ICONS FLAGS ### -->
                     <ul class="navbar-nav">
-                        <li class="dropdown" style="width: 65px">
+                        <li class="dropdown">
                             <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
-                                <div class="peer mR-10" style="padding: 16px">
-                                    <img src="~/img/flags/spain.png" class="flag-size" />
+                                <div class="peer mR-10">
+                                    <img src="~/img/flags/spain.png" class="flag-size flag-margin" />
                                 </div>
                             </a>
-                            <ul class="dropdown-menu fsz-sm" style="min-width: 40px">
+                            <ul class="dropdown-menu fsz-sm" style="min-width: 30px">
                                 <li>
                                     <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700 flag-padding">
                                         <img src="~/img/flags/united-kingdom.png" class="flag-size" />
@@ -99,14 +90,6 @@
                             </ul>
                         </li>
                     </ul>
-                    @*<ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>*@
                 </div>
             </div>
         </nav>
@@ -115,22 +98,22 @@
         <div class="sidebar" style="top: 88px; bottom:62px;">
             <div class="sidebar-inner">
                 <!-- ### $Sidebar Header ### -->
-                @*<div class="sidebar-logo" style="padding:30px; padding-left:25px;">
-                        <div class="peers ai-c fxw-nw">
-                            <div class="peer peer-greed">
-                                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-                                    <i class="fa fa-bars"></i>
+                <div class="sidebar-logo" style="padding:30px; padding-left:25px;">
+                    <div class="peers ai-c fxw-nw">
+                        <div class="peer peer-greed">
+                            <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                        <div class="peer">
+                            <div class="mobile-toggle sidebar-toggle">
+                                <a href="" class="td-n">
+                                    <i class="fas fa-arrow-circle-left"></i>
                                 </a>
                             </div>
-                            <div class="peer">
-                                <div class="mobile-toggle sidebar-toggle">
-                                    <a href="" class="td-n">
-                                        <i class="fas fa-arrow-circle-left"></i>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
-                    </div>*@
+                    </div>
+                </div>
 
                 <!-- ### $Sidebar Menu ### -->
                 <ul class="sidebar-menu scrollable pos-r">
@@ -166,104 +149,104 @@
                             <span class="title">Users</span>
                         </a>
                     </li>
-                    @*<li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="c-green fa fa-table"></i>
-                                </span>
-                                <span class="title">Tables</span>
-                                <span class="arrow">
-                                    <i class="fa fa-angle-right"></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class='sidebar-link' href="basic-table.html">
-                                        <span class="icon-holder">
-                                            <i class="c-green fa fa-table-tennis"></i>
-                                        </span>
-                                        <span class="title">Basic Table</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class='sidebar-link' href="basic-table.html">
-                                        <span class="icon-holder">
-                                            <i class="c-green fa fa-tablet"></i>
-                                        </span>
-                                        <span class="title">Data Table</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="c-purple fa fa-map"></i>
-                                </span>
-                                <span class="title">Maps</span>
-                                <span class="arrow">
-                                    <i class="fa fa-angle-right"></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="google-maps.html">Google Map</a>
-                                </li>
-                                <li>
-                                    <a href="vector-maps.html">Vector Map</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="c-teal fa fa-list-alt"></i>
-                                </span>
-                                <span class="title">Multiple Levels</span>
-                                <span class="arrow">
-                                    <i class="fa fa-angle-right"></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item dropdown">
-                                    <a href="javascript:void(0);">
-                                        <span class="icon-holder">
-                                            <i class="c-teal fa fa-chess-bishop"></i>
-                                        </span>
-                                        <span>Menu Item</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="javascript:void(0);">
-                                        <span class="icon-holder">
-                                            <i class="c-teal fa fa-chess-knight"></i>
-                                        </span>
-                                        <span>Menu Item</span>
-                                        <span class="arrow">
-                                            <i class=" fa fa-angle-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <span class="icon-holder">
-                                                    <i class="c-teal fa fa-chess-queen"></i>
-                                                </span>
-                                                <span>Menu Item</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <span class="icon-holder">
-                                                    <i class="c-teal fa fa-chess-pawn"></i>
-                                                </span>
-                                                <span>Menu Item</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>*@
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-green fa fa-table"></i>
+                            </span>
+                            <span class="title">Tables</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class='sidebar-link' href="basic-table.html">
+                                    <span class="icon-holder">
+                                        <i class="c-green fa fa-table-tennis"></i>
+                                    </span>
+                                    <span class="title">Basic Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class='sidebar-link' href="basic-table.html">
+                                    <span class="icon-holder">
+                                        <i class="c-green fa fa-tablet"></i>
+                                    </span>
+                                    <span class="title">Data Table</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-purple fa fa-map"></i>
+                            </span>
+                            <span class="title">Maps</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="google-maps.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="vector-maps.html">Vector Map</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0);">
+                            <span class="icon-holder">
+                                <i class="c-teal fa fa-list-alt"></i>
+                            </span>
+                            <span class="title">Levels</span>
+                            <span class="arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item dropdown">
+                                <a href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="c-teal fa fa-chess-bishop"></i>
+                                    </span>
+                                    <span>Menu Item</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="c-teal fa fa-chess-knight"></i>
+                                    </span>
+                                    <span>Menu Item</span>
+                                    <span class="arrow">
+                                        <i class=" fa fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="icon-holder">
+                                                <i class="c-teal fa fa-chess-queen"></i>
+                                            </span>
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="icon-holder">
+                                                <i class="c-teal fa fa-chess-pawn"></i>
+                                            </span>
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
